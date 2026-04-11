@@ -1,0 +1,12 @@
+name: ReinforcementLearning
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  - pip
+  - pip:
+      - numpy==2.4.4
+      - matplotlib==3.10.8
+      - gymnasium==1.2.3
+      - tqdm==4.67.3

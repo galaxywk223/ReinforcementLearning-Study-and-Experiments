@@ -1,0 +1,17 @@
+__pycache__/
+*.py[cod]
+.Python
+.venv/
+venv/
+.idea/
+.vscode/
+.ipynb_checkpoints/
+.pytest_cache/
+
+projects/*/outputs/
+projects/*/videos/
+projects/*/checkpoints/
+projects/*/runs/
+projects/*/data/
+
+.DS_Store
