@@ -89,3 +89,12 @@ ReinforcementLearning-Study-and-Experiments/
 2. `FrozenLake` 中不同探索率和环境设置对比
 3. `CartPole` 上的 `DQN`
 4. 更完整的策略梯度与 Actor-Critic 实验
+
+## 开源协议
+
+本仓库中的代码与文档基于 [MIT License](./LICENSE) 开源。
+
+补充说明：
+
+- 本仓库的许可证仅覆盖当前仓库中自行编写和整理的代码、说明文档与教学实验组织内容。
+- 仓库中的实验结果图、训练输出以及第三方环境、平台和依赖库的原始内容，不因本仓库采用 MIT 协议而自动转授任何额外权利。
