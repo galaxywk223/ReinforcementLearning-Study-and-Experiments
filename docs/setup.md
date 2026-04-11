@@ -39,6 +39,20 @@ cd projects/frozenlake-tabular-q
 python trace_q_updates.py --episodes 6
 ```
 
+运行 `CliffWalking` 上的 `SARSA` 项目：
+
+```bash
+cd projects/cliffwalking-tabular-sarsa
+python train.py --episodes 800 --render-final-policy
+```
+
+运行 `SARSA / Q-Learning` 对比实验：
+
+```bash
+cd projects/cliffwalking-tabular-sarsa
+python compare_sarsa_q_learning.py --episodes 800
+```
+
 ## 4. Windows / CPU / GPU 说明
 
 - 当前公开项目是表格型方法，CPU 就可以运行

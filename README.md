@@ -10,8 +10,8 @@
 
 ## 当前覆盖内容
 
-- 文档：从入门问题、MDP 与 Bellman 方程，到 Q-learning 的逐步值传播
-- 项目：一个可直接运行的 `FrozenLake Tabular Q-Learning` 教学实验
+- 文档：从入门问题、MDP 与 Bellman 方程，到 `Q-Learning`、`SARSA` 和两者在 `CliffWalking` 中的对比
+- 项目：两个可直接运行的表格方法教学实验
 - 结果展示：一份精选训练曲线和对应结果摘要
 
 ## 快速开始
@@ -30,6 +30,13 @@ cd projects/frozenlake-tabular-q
 python train.py --episodes 4000 --render-final-policy
 ```
 
+或者运行新的 `CliffWalking SARSA` 项目：
+
+```bash
+cd projects/cliffwalking-tabular-sarsa
+python train.py --episodes 800 --render-final-policy
+```
+
 更完整的安装说明见 [docs/setup.md](docs/setup.md)。
 
 ## 学习路径
@@ -40,6 +47,9 @@ python train.py --episodes 4000 --render-final-policy
 2. [MDP、回报与 Bellman 方程](docs/foundations/mdp-and-bellman.md)
 3. [Q-Learning 是怎么一步步把 Q 表学出来的](docs/tabular/q-learning-step-by-step.md)
 4. [FrozenLake Tabular Q-Learning 项目说明](projects/frozenlake-tabular-q/README.md)
+5. [SARSA 是怎么用“下一步真实动作”更新 Q 表的](docs/tabular/sarsa-step-by-step.md)
+6. [SARSA 和 Q-Learning 在 CliffWalking 里会学出什么区别](docs/tabular/sarsa-vs-q-learning.md)
+7. [CliffWalking Tabular SARSA 项目说明](projects/cliffwalking-tabular-sarsa/README.md)
 
 ## 项目概览
 
@@ -51,6 +61,15 @@ python train.py --episodes 4000 --render-final-policy
 - 方法：`Tabular Q-Learning`
 - 目标：理解动作价值表如何被逐步学习出来
 - 输出：奖励曲线、评估成功率、最终策略和 Q 表
+
+### CliffWalking Tabular SARSA
+
+项目路径：[projects/cliffwalking-tabular-sarsa/README.md](projects/cliffwalking-tabular-sarsa/README.md)
+
+- 环境：`CliffWalking-v1`
+- 方法：`Tabular SARSA`
+- 目标：理解 `on-policy` 更新为什么会让策略更保守
+- 输出：奖励曲线、平均回报、平均步数、平均掉崖次数、最终策略和 Q 表
 
 ## 精选结果
 
@@ -76,17 +95,18 @@ ReinforcementLearning-Study-and-Experiments/
 │  └─ tabular/
 ├─ projects/
 │  ├─ requirements.txt
-│  └─ frozenlake-tabular-q/
+│  ├─ frozenlake-tabular-q/
+│  └─ cliffwalking-tabular-sarsa/
 ├─ environment.yml
 └─ README.md
 ```
 
 ## 路线图
 
-当前仓库只正式公开一个表格方法项目。后续会按下面顺序扩展：
+当前仓库已经公开两个表格方法项目。后续会按下面顺序扩展：
 
-1. `SARSA` 与 `Q-Learning` 对比
-2. `FrozenLake` 中不同探索率和环境设置对比
+1. `FrozenLake` 中不同探索率和环境设置对比
+2. `Monte Carlo` 与 `TD` 方法的进一步对比
 3. `CartPole` 上的 `DQN`
 4. 更完整的策略梯度与 Actor-Critic 实验
 
