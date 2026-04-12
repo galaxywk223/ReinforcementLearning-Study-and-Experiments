@@ -6,9 +6,9 @@
 
 | 目录 | 环境 | 方法 | 说明 |
 | --- | --- | --- | --- |
-| [01-frozenlake-tabular-q](./01-frozenlake-tabular-q/README.md) | `FrozenLake-v1` | `Tabular Q-Learning` | 观察 Q 值如何沿成功路径逐步传播 |
-| [02-cliffwalking-tabular-sarsa](./02-cliffwalking-tabular-sarsa/README.md) | `CliffWalking-v1` | `Tabular SARSA` | 观察 `on-policy` 更新与风险规避的关系 |
-| [03-blackjack-monte-carlo](./03-blackjack-monte-carlo/README.md) | `Blackjack-v1` | `First-Visit Monte Carlo Control` | 观察整局回报如何更新动作价值 |
+| [FrozenLake 表格型 Q 学习](./01-frozenlake-tabular-q/README.md) | `FrozenLake-v1` | `Tabular Q-Learning` | 观察 Q 值如何沿成功路径逐步传播 |
+| [CliffWalking 表格型 SARSA](./02-cliffwalking-tabular-sarsa/README.md) | `CliffWalking-v1` | `Tabular SARSA` | 观察 `on-policy` 更新与风险规避的关系 |
+| [Blackjack 首次访问蒙特卡洛](./03-blackjack-monte-carlo/README.md) | `Blackjack-v1` | `First-Visit Monte Carlo Control` | 观察整局回报如何更新动作价值 |
 
 ## 运行前准备
 

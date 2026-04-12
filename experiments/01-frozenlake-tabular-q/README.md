@@ -43,7 +43,7 @@ python trace_q_updates.py --episodes 6
 
 ![FrozenLake reward curve](../../assets/figures/frozenlake/reward_curve.png)
 
-| Run | Episodes | Avg Reward | Success Rate |
+| 运行名 | 回合数 | 平均奖励 | 成功率 |
 | --- | ---: | ---: | ---: |
 | `first-full-run` | 4000 | `0.73` | `0.73` |
 

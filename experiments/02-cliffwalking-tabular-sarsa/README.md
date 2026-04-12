@@ -53,7 +53,7 @@ python compare_sarsa_q_learning.py --episodes 800
 
 ![CliffWalking reward curve](../../assets/figures/cliffwalking/reward_curve.png)
 
-| Run | Episodes | Avg Reward | Avg Steps To Goal | Avg Cliff Falls |
+| 运行名 | 回合数 | 平均奖励 | 平均到达步数 | 平均掉崖次数 |
 | --- | ---: | ---: | ---: | ---: |
 | `sarsa-baseline` | 800 | `-17.0` | `17.0` | `0.0` |
 

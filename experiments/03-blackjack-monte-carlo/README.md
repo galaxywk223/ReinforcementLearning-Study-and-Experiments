@@ -44,7 +44,7 @@ python trace_mc_updates.py --episodes 3
 
 ![Blackjack policy heatmaps](../../assets/figures/blackjack/policy_heatmaps.png)
 
-| Run | Episodes | Avg Reward | Win Rate | Draw Rate | Loss Rate |
+| 运行名 | 回合数 | 平均奖励 | 胜率 | 平局率 | 负率 |
 | --- | ---: | ---: | ---: | ---: | ---: |
 | `monte-carlo-reference-500k` | 500000 | `-0.0413` | `0.4350` | `0.0887` | `0.4763` |
 
