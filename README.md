@@ -1,155 +1,126 @@
 # Reinforcement Learning Study and Experiments
 
-一个面向公开读者的强化学习学习型仓库，目标是把“基础概念、代码实现、实验结果、可复现实验路径”整理成可以直接阅读和运行的 GitHub 项目。
+这个仓库整理强化学习入门阶段的学习笔记和可运行实验。当前内容集中在离散环境与表格方法，笔记和实验一一对应，适合按顺序阅读，也可以直接进入某个实验单独运行。
 
-## 适合谁
+## 当前内容
 
-- 想系统入门强化学习的人
-- 想先从表格方法理解值函数和 Bellman 更新的人
-- 想把“公式理解”和“代码执行”对上的人
+- [notes/](notes/README.md)：按序号组织的学习笔记，从基础概念到 `Q-Learning`、`SARSA`、`Monte Carlo`
+- [experiments/](experiments/README.md)：三个可运行实验，覆盖 `FrozenLake`、`CliffWalking` 和 `Blackjack`
+- [assets/figures/](assets/figures)：README 中引用的精选结果图
 
-## 当前覆盖内容
+## 推荐阅读顺序
 
-- 文档：从入门问题、MDP 与 Bellman 方程，到 `Q-Learning`、`SARSA`、`Monte Carlo` 以及它们各自的教学拆解
-- 项目：三个可直接运行的教学实验，覆盖网格世界和 `Blackjack`
-- 结果展示：精选训练曲线、策略热力图和对应结果摘要
+1. [00-环境安装与运行](notes/00-环境安装与运行.md)
+2. [01-第一次理解强化学习](notes/01-第一次理解强化学习.md)
+3. [02-MDP、回报与Bellman方程](notes/02-MDP、回报与Bellman方程.md)
+4. [03-Q-Learning是怎么一步步把Q表学出来的](notes/03-Q-Learning是怎么一步步把Q表学出来的.md)
+5. [01-frozenlake-tabular-q](experiments/01-frozenlake-tabular-q/README.md)
+6. [04-SARSA是怎么用下一步真实动作更新Q表的](notes/04-SARSA是怎么用下一步真实动作更新Q表的.md)
+7. [05-SARSA和Q-Learning在CliffWalking里会学出什么区别](notes/05-SARSA和Q-Learning在CliffWalking里会学出什么区别.md)
+8. [02-cliffwalking-tabular-sarsa](experiments/02-cliffwalking-tabular-sarsa/README.md)
+9. [06-MonteCarlo是怎么用整局回报更新动作价值的](notes/06-MonteCarlo是怎么用整局回报更新动作价值的.md)
+10. [03-blackjack-monte-carlo](experiments/03-blackjack-monte-carlo/README.md)
+
+完整导航见 [notes/README.md](notes/README.md) 和 [experiments/README.md](experiments/README.md)。
+
+## 实验概览
+
+| 实验 | 环境 | 方法 | 主要观察点 |
+| --- | --- | --- | --- |
+| [01-frozenlake-tabular-q](experiments/01-frozenlake-tabular-q/README.md) | `FrozenLake-v1` | `Tabular Q-Learning` | 终点奖励如何沿路径逐步向前传播 |
+| [02-cliffwalking-tabular-sarsa](experiments/02-cliffwalking-tabular-sarsa/README.md) | `CliffWalking-v1` | `Tabular SARSA` | `on-policy` 更新怎样影响风险偏好 |
+| [03-blackjack-monte-carlo](experiments/03-blackjack-monte-carlo/README.md) | `Blackjack-v1` | `First-Visit Monte Carlo Control` | 整局回报如何在回合结束后更新动作价值 |
 
 ## 快速开始
 
-推荐先使用仓库根目录下的公开环境定义：
+推荐使用仓库根目录的环境定义：
 
 ```bash
 conda env create -f environment.yml
 conda activate ReinforcementLearning
 ```
 
-然后运行当前示例项目：
+如果不使用 `conda`：
 
 ```bash
-cd projects/01-frozenlake-tabular-q
+pip install -r requirements.txt
+```
+
+运行第一个实验：
+
+```bash
+cd experiments/01-frozenlake-tabular-q
 python train.py --episodes 4000 --render-final-policy
 ```
 
-或者运行新的 `CliffWalking SARSA` 项目：
-
-```bash
-cd projects/02-cliffwalking-tabular-sarsa
-python train.py --episodes 800 --render-final-policy
-```
-
-还可以运行新的 `Blackjack Monte Carlo` 项目：
-
-```bash
-cd projects/03-blackjack-monte-carlo
-python train.py --episodes 200000 --render-final-policy
-```
-
-更完整的安装说明见 [notes/00-环境安装.md](notes/00-环境安装.md)。
-
-## 学习路径
-
-目录和文件名前缀数字表示推荐阅读顺序。
-
-建议按下面顺序阅读和运行：
-
-1. [第一次理解强化学习](notes/01-第一次理解强化学习.md)
-2. [马尔可夫决策过程（MDP）、回报与 Bellman 方程](notes/02-MDP、回报与 Bellman 方程.md)
-3. [Q 学习（Q-Learning）是怎么一步步把 Q 表学出来的](notes/03-Q-Learning 是怎么一步步把 Q 表学出来的.md)
-4. [FrozenLake 表格型 Q 学习（Tabular Q-Learning）项目说明](projects/01-frozenlake-tabular-q/README.md)
-5. [SARSA 是怎么用“下一步真实动作”更新 Q 表的](notes/04-SARSA 是怎么用“下一步真实动作”更新 Q 表的.md)
-6. [SARSA 和 Q 学习（Q-Learning）在 CliffWalking 里会学出什么区别](notes/05-SARSA 和 Q-Learning 在 CliffWalking 里会学出什么区别.md)
-7. [CliffWalking 表格型 SARSA 项目说明](projects/02-cliffwalking-tabular-sarsa/README.md)
-8. [蒙特卡洛（Monte Carlo）是怎么用整局回报更新动作价值的](notes/06-Monte Carlo 是怎么用整局回报更新动作价值的.md)
-9. [Blackjack 首次访问蒙特卡洛（First-Visit Monte Carlo）项目说明](projects/03-blackjack-monte-carlo/README.md)
-
-## 项目概览
-
-### FrozenLake 表格型 Q 学习（Tabular Q-Learning）
-
-项目路径：[projects/01-frozenlake-tabular-q/README.md](projects/01-frozenlake-tabular-q/README.md)
-
-- 环境：`FrozenLake-v1`
-- 方法：`Tabular Q-Learning`
-- 目标：理解动作价值表如何被逐步学习出来
-- 输出：奖励曲线、评估成功率、最终策略和 Q 表
-
-### CliffWalking 表格型 SARSA
-
-项目路径：[projects/02-cliffwalking-tabular-sarsa/README.md](projects/02-cliffwalking-tabular-sarsa/README.md)
-
-- 环境：`CliffWalking-v1`
-- 方法：`Tabular SARSA`
-- 目标：理解 `on-policy` 更新为什么会让策略更保守
-- 输出：奖励曲线、平均回报、平均步数、平均掉崖次数、最终策略和 Q 表
-
-### Blackjack 首次访问蒙特卡洛（First-Visit Monte Carlo）
-
-项目路径：[projects/03-blackjack-monte-carlo/README.md](projects/03-blackjack-monte-carlo/README.md)
-
-- 环境：`Blackjack-v1`
-- 方法：`First-Visit Monte Carlo Control`
-- 目标：理解整局回报如何在回合结束后统一更新动作价值
-- 输出：奖励曲线、胜平负评估、策略热力图、状态价值热力图和 Q 表
+更多运行方式见 [00-环境安装与运行](notes/00-环境安装与运行.md)。
 
 ## 精选结果
 
-下面的奖励曲线来自当前仓库的一个代表性运行结果：
+### FrozenLake
 
-![FrozenLake reward curve](assets/examples/frozenlake/reward_curve.png)
+`FrozenLake-v1` 上的表格型 `Q-Learning` 结果可以直接看到奖励曲线逐步抬升。
 
-对应的结果摘要：
+![FrozenLake reward curve](assets/figures/frozenlake/reward_curve.png)
 
-| Run | Episodes | Environment | Avg Reward | Success Rate |
-| --- | -------: | ----------- | ---------: | -----------: |
-| `first-full-run` | 4000 | `FrozenLake-v1` (`is_slippery=True`) | `0.73` | `0.73` |
+| Run | Episodes | Avg Reward | Success Rate |
+| --- | ---: | ---: | ---: |
+| `first-full-run` | 4000 | `0.73` | `0.73` |
 
-`Blackjack` 的代表性策略结果：
+### CliffWalking
 
-![Blackjack policy heatmaps](assets/examples/blackjack/policy_heatmaps.png)
+`SARSA` 基线实验里，代表性策略保持了 `0` 次平均掉崖，并以较长但稳定的路径到达终点。
 
-对应的结果摘要：
+![CliffWalking reward curve](assets/figures/cliffwalking/reward_curve.png)
 
-| Run | Episodes | Environment | Avg Reward | Win Rate | Draw Rate |
-| --- | -------: | ----------- | ---------: | -------: | --------: |
-| `monte-carlo-reference-500k` | 500000 | `Blackjack-v1` | `-0.0413` | `0.4350` | `0.0887` |
+| Run | Episodes | Avg Reward | Avg Steps To Goal | Avg Cliff Falls |
+| --- | ---: | ---: | ---: | ---: |
+| `sarsa-baseline` | 800 | `-17.0` | `17.0` | `0.0` |
+
+### Blackjack
+
+`Blackjack` 的公开示例保留了训练曲线和最终策略热力图，便于把整局回报与最终策略对应起来。
+
+![Blackjack policy heatmaps](assets/figures/blackjack/policy_heatmaps.png)
+
+| Run | Episodes | Avg Reward | Win Rate | Draw Rate |
+| --- | ---: | ---: | ---: | ---: |
+| `monte-carlo-reference-500k` | 500000 | `-0.0413` | `0.4350` | `0.0887` |
 
 ## 仓库结构
 
 ```text
 ReinforcementLearning-Study-and-Experiments/
 ├─ assets/
-│  └─ examples/
-├─ notes/
-│  ├─ 00-环境安装.md
-│  ├─ 01-第一次理解强化学习.md
-│  ├─ 02-MDP、回报与 Bellman 方程.md
-│  ├─ 03-Q-Learning 是怎么一步步把 Q 表学出来的.md
-│  ├─ 04-SARSA 是怎么用“下一步真实动作”更新 Q 表的.md
-│  ├─ 05-SARSA 和 Q-Learning 在 CliffWalking 里会学出什么区别.md
-│  └─ 06-Monte Carlo 是怎么用整局回报更新动作价值的.md
-├─ projects/
-│  ├─ requirements.txt
+│  └─ figures/
+├─ experiments/
+│  ├─ README.md
 │  ├─ 01-frozenlake-tabular-q/
 │  ├─ 02-cliffwalking-tabular-sarsa/
 │  └─ 03-blackjack-monte-carlo/
+├─ notes/
+│  ├─ README.md
+│  ├─ 00-环境安装与运行.md
+│  ├─ 01-第一次理解强化学习.md
+│  ├─ 02-MDP、回报与Bellman方程.md
+│  ├─ 03-Q-Learning是怎么一步步把Q表学出来的.md
+│  ├─ 04-SARSA是怎么用下一步真实动作更新Q表的.md
+│  ├─ 05-SARSA和Q-Learning在CliffWalking里会学出什么区别.md
+│  └─ 06-MonteCarlo是怎么用整局回报更新动作价值的.md
 ├─ environment.yml
+├─ requirements.txt
 └─ README.md
 ```
 
-## 路线图
+## 后续更新
 
-当前仓库已经公开三个教学项目。后续会按下面顺序扩展：
+后续内容会继续沿笔记序号往后扩展，优先补下面几条：
 
 1. `TD(0)`、`Expected SARSA` 和 `n-step` 方法
-2. `Monte Carlo` 与 `TD` 方法的系统对比
+2. `Monte Carlo` 与 `TD` 方法的对比
 3. `CartPole` 上的 `DQN`
 4. 更完整的策略梯度与 Actor-Critic 实验
 
 ## 开源协议
 
-本仓库中的代码与文档基于 [MIT License](./LICENSE) 开源。
-
-补充说明：
-
-- 本仓库的许可证仅覆盖当前仓库中自行编写和整理的代码、说明文档与教学实验组织内容。
-- 仓库中的实验结果图、训练输出以及第三方环境、平台和依赖库的原始内容，不因本仓库采用 MIT 协议而自动转授任何额外权利。
+仓库中的代码和文档基于 [MIT License](LICENSE) 开源。
