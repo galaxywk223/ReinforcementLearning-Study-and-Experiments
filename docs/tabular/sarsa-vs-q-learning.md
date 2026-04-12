@@ -4,7 +4,7 @@
 
 - `Q-Learning`
 - `Bellman` 更新
-- `epsilon-greedy`
+- $\epsilon$-greedy
 
 下一步最值得弄清楚的问题通常不是“再多背一个算法名字”，而是：
 
@@ -157,7 +157,7 @@ python compare_sarsa_q_learning.py --episodes 800
 
 - 固定一条人为指定的安全路径
 - 不让算法自己决定怎么走
-- 只演示 `SARSA` 更新时为什么要用 `Q(s', a')`
+- 只演示 `SARSA` 更新时为什么要用 $Q(s', a')$
 
 所以它回答的是：
 
@@ -166,7 +166,7 @@ python compare_sarsa_q_learning.py --episodes 800
 而 `compare_sarsa_q_learning.py` 做的是：
 
 - 让 `SARSA` 和 `Q-Learning` 真正在环境里训练
-- 每一步都按 `epsilon-greedy` 自己选动作
+- 每一步都按 $\epsilon$-greedy 自己选动作
 - 最后再比较它们学出来的策略
 
 所以它回答的是：
@@ -186,7 +186,7 @@ python compare_sarsa_q_learning.py --episodes 800
 
 它的意思是：
 
-- 对每一个状态 `s`
+- 对每一个状态 $s$
 - 单独取当前 Q 值最大的动作
 
 也就是：
@@ -221,14 +221,14 @@ $$
 
 ## 评估时为什么和训练时也可能不一样
 
-在训练阶段，脚本使用的是 `epsilon-greedy`：
+在训练阶段，脚本使用的是 $\epsilon$-greedy：
 
 - 大部分时候按当前 Q 表选动作
 - 少部分时候随机探索
 
 但在评估阶段，脚本使用的是纯贪心策略：
 
-- 永远选 `argmax Q(s, a)`
+- 永远选 $\arg\max_a Q(s, a)$
 - 不再额外探索
 
 所以训练期和评估期回答的问题也不一样：
@@ -247,8 +247,8 @@ $$
 
 1. 最终策略是不是沿悬崖边走
 2. 训练期间哪种算法掉崖更多
-3. 当 `epsilon` 变大时，哪种算法更受影响
-4. 当 `epsilon` 固定不衰减时，哪种算法更容易学得保守
+3. 当 $\epsilon$ 变大时，哪种算法更受影响
+4. 当 $\epsilon$ 固定不衰减时，哪种算法更容易学得保守
 
 这些问题会直接帮你把：
 
