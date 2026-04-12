@@ -1,4 +1,4 @@
-# SARSA 和 Q-Learning 在 CliffWalking 里会学出什么区别
+# SARSA 和 Q 学习（Q-Learning）在 CliffWalking 里会学出什么区别
 
 当你已经学过：
 
@@ -34,8 +34,8 @@ $$
 
 因此：
 
-- `Q-Learning` 是 `off-policy`
-- `SARSA` 是 `on-policy`
+- `Q-Learning` 是离策略学习（`off-policy`）
+- `SARSA` 是按当前策略学习（`on-policy`）
 
 ## CliffWalking 为什么特别适合看这个差别
 
@@ -46,7 +46,7 @@ $$
 
 这正好把两种算法的性格放大出来。
 
-### Q-Learning 更像什么
+### Q 学习（Q-Learning）更像什么
 
 它更新时想的是：
 
@@ -114,12 +114,12 @@ $$
 
 当前仓库给了一个直接对比脚本：
 
-- [compare_sarsa_q_learning.py](../../projects/cliffwalking-tabular-sarsa/compare_sarsa_q_learning.py)
+- [compare_sarsa_q_learning.py](../projects/02-cliffwalking-tabular-sarsa/compare_sarsa_q_learning.py)
 
 运行：
 
 ```bash
-cd projects/cliffwalking-tabular-sarsa
+cd projects/02-cliffwalking-tabular-sarsa
 python compare_sarsa_q_learning.py --episodes 800
 ```
 
@@ -148,8 +148,8 @@ python compare_sarsa_q_learning.py --episodes 800
 
 当前仓库里有两个很容易混淆的脚本：
 
-- [trace_sarsa_updates.py](../../projects/cliffwalking-tabular-sarsa/trace_sarsa_updates.py)
-- [compare_sarsa_q_learning.py](../../projects/cliffwalking-tabular-sarsa/compare_sarsa_q_learning.py)
+- [trace_sarsa_updates.py](../projects/02-cliffwalking-tabular-sarsa/trace_sarsa_updates.py)
+- [compare_sarsa_q_learning.py](../projects/02-cliffwalking-tabular-sarsa/compare_sarsa_q_learning.py)
 
 它们的任务完全不同。
 
@@ -180,7 +180,7 @@ python compare_sarsa_q_learning.py --episodes 800
 
 两边结果不同不是出错，而正是因为它们在做两件不同的事。
 
-## `greedy policy` 表和“实际贪心路径”也不是一回事
+## 贪心策略（`greedy policy`）表和“实际贪心路径”也不是一回事
 
 实验输出里常会打印一张 `greedy policy` 表。
 
@@ -212,7 +212,7 @@ $$
 所以：
 
 - `greedy policy` 是整张状态到动作的映射表
-- `greedy path` 是从起点把这些局部动作串起来后的实际 rollout
+- `greedy path` 是从起点把这些局部动作串起来后的实际轨迹（`rollout`）
 
 这也是为什么：
 
@@ -252,7 +252,7 @@ $$
 
 这些问题会直接帮你把：
 
-- `on-policy`
+- 按当前策略学习（`on-policy`）
 - `off-policy`
 - 训练期风险
 - 最终贪心策略
@@ -261,6 +261,6 @@ $$
 
 ## 配合哪些内容一起看
 
-- [SARSA 是怎么用“下一步真实动作”更新 Q 表的](./sarsa-step-by-step.md)
-- [Q-Learning 是怎么一步步把 Q 表学出来的](./q-learning-step-by-step.md)
-- [CliffWalking Tabular SARSA 项目说明](../../projects/cliffwalking-tabular-sarsa/README.md)
+- [SARSA 是怎么用“下一步真实动作”更新 Q 表的](./04-SARSA 是怎么用“下一步真实动作”更新 Q 表的.md)
+- [Q 学习（Q-Learning）是怎么一步步把 Q 表学出来的](./03-Q-Learning 是怎么一步步把 Q 表学出来的.md)
+- [CliffWalking 表格型 SARSA 项目说明](../projects/02-cliffwalking-tabular-sarsa/README.md)

@@ -1,17 +1,17 @@
-# FrozenLake Tabular Q-Learning
+# FrozenLake 表格型 Q 学习（Tabular Q-Learning）
 
-一个最小但完整的强化学习入门项目，用 `FrozenLake-v1` 演示表格型 `Q-Learning` 如何学习动作价值表，并最终导出策略。
+一个最小但完整的强化学习入门项目，用 `FrozenLake-v1` 演示表格型 Q 学习（`Q-Learning`）如何学习动作价值表，并最终导出策略。
 
 ## 项目目标
 
 - 在离散小环境中理解 $Q(s, a)$ 的含义
 - 观察探索率衰减如何影响训练
-- 看到奖励如何通过 Bellman 更新逐步向前传播
+- 看到奖励如何通过 Bellman 递推更新逐步向前传播
 
 ## 环境与算法
 
 - 环境：`FrozenLake-v1`
-- 算法：`Tabular Q-Learning`
+- 算法：表格型 Q 学习（`Tabular Q-Learning`）
 - 动作空间：离散动作 `L / D / R / U`
 - 输出内容：训练曲线、评估成功率、最终策略、Q 表
 
@@ -20,7 +20,7 @@
 在仓库根目录准备环境后，执行：
 
 ```bash
-cd projects/frozenlake-tabular-q
+cd projects/01-frozenlake-tabular-q
 python train.py --episodes 4000 --render-final-policy
 ```
 
@@ -54,13 +54,13 @@ python train.py --episodes 4000 --non-slippery --run-name frozenlake-determinist
 
 代表性结果摘要：
 
-| Run | Episodes | Avg Reward | Success Rate |
-| --- | -------: | ---------: | -----------: |
+| 运行名 | 回合数 | 平均奖励 | 成功率 |
+| --- | ---: | ---: | ---: |
 | `first-full-run` | 4000 | `0.73` | `0.73` |
 
 ## 相关文档
 
-- [第一次理解强化学习](../../docs/getting-started/first-questions.md)
-- [MDP、回报与 Bellman 方程](../../docs/foundations/mdp-and-bellman.md)
-- [Q-Learning 是怎么一步步把 Q 表学出来的](../../docs/tabular/q-learning-step-by-step.md)
-- [环境安装说明](../../docs/setup.md)
+- [第一次理解强化学习](../../notes/01-第一次理解强化学习.md)
+- [马尔可夫决策过程（MDP）、回报与 Bellman 方程](../../notes/02-MDP、回报与 Bellman 方程.md)
+- [Q 学习（Q-Learning）是怎么一步步把 Q 表学出来的](../../notes/03-Q-Learning 是怎么一步步把 Q 表学出来的.md)
+- [环境安装说明](../../notes/00-环境安装.md)

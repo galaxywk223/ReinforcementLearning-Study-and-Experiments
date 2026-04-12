@@ -42,7 +42,7 @@ $$
 
 - 下一步按我现在这套带探索的策略，实际很可能会怎么走
 
-这就是它常被叫做 `on-policy` 的原因。
+这就是它常被叫做按当前策略学习（`on-policy`）的原因。
 
 ## $a$ 和 $a'$ 不是同一个动作
 
@@ -320,7 +320,7 @@ $$
 - 不只是当前这一步有代价
 - 后面的路径长度代价也开始一轮一轮向前传播
 
-## 和 Q-Learning 的真正区别在哪
+## 和 Q 学习（Q-Learning）的真正区别在哪
 
 只看公式时，很多人会觉得两者差别很小。
 
@@ -341,7 +341,7 @@ $$
 
 当前仓库里的 `SARSA` 项目在这里：
 
-- [train.py](../../projects/cliffwalking-tabular-sarsa/train.py)
+- [train.py](../projects/02-cliffwalking-tabular-sarsa/train.py)
 
 核心更新逻辑是这几行：
 
@@ -368,12 +368,12 @@ q_table[next_state, next_action]
 
 教学脚本见：
 
-- [trace_sarsa_updates.py](../../projects/cliffwalking-tabular-sarsa/trace_sarsa_updates.py)
+- [trace_sarsa_updates.py](../projects/02-cliffwalking-tabular-sarsa/trace_sarsa_updates.py)
 
 运行：
 
 ```bash
-cd projects/cliffwalking-tabular-sarsa
+cd projects/02-cliffwalking-tabular-sarsa
 python trace_sarsa_updates.py --episodes 2
 ```
 
@@ -396,6 +396,6 @@ python trace_sarsa_updates.py --episodes 2
 
 ## 接下来读什么
 
-- [Q-Learning 是怎么一步步把 Q 表学出来的](./q-learning-step-by-step.md)
-- [SARSA 和 Q-Learning 在 CliffWalking 里会学出什么区别](./sarsa-vs-q-learning.md)
-- [CliffWalking Tabular SARSA 项目说明](../../projects/cliffwalking-tabular-sarsa/README.md)
+- [Q 学习（Q-Learning）是怎么一步步把 Q 表学出来的](./03-Q-Learning 是怎么一步步把 Q 表学出来的.md)
+- [SARSA 和 Q-Learning 在 CliffWalking 里会学出什么区别](./05-SARSA 和 Q-Learning 在 CliffWalking 里会学出什么区别.md)
+- [CliffWalking 表格型 SARSA 项目说明](../projects/02-cliffwalking-tabular-sarsa/README.md)

@@ -1,17 +1,17 @@
-# CliffWalking Tabular SARSA
+# CliffWalking 表格型 SARSA
 
 一个面向表格方法下一阶段学习的最小完整项目，用 `CliffWalking-v1` 演示 `SARSA` 如何在带风险的环境中学习更保守的动作价值表。
 
 ## 项目目标
 
 - 理解 `SARSA` 更新时为什么要看下一步真实动作
-- 观察 `on-policy` 学习在危险环境中的表现
+- 观察按当前策略学习（`on-policy`）在危险环境中的表现
 - 对比 `SARSA` 和 `Q-Learning` 在 `CliffWalking` 里的路径差异
 
 ## 环境与算法
 
 - 环境：`CliffWalking-v1`
-- 算法：`Tabular SARSA`
+- 算法：表格型 `SARSA`
 - 动作空间：离散动作 `U / R / D / L`
 - 输出内容：训练曲线、评估回报、平均步数、平均掉崖次数、最终策略和 Q 表
 
@@ -20,7 +20,7 @@
 在仓库根目录准备环境后，执行：
 
 ```bash
-cd projects/cliffwalking-tabular-sarsa
+cd projects/02-cliffwalking-tabular-sarsa
 python train.py --episodes 800 --render-final-policy
 ```
 
@@ -50,9 +50,9 @@ python trace_sarsa_updates.py --episodes 2
 python compare_sarsa_q_learning.py --episodes 800
 ```
 
-这个对比脚本除了打印两张 `greedy policy` 表，还会额外打印：
+这个对比脚本除了打印两张贪心策略（`greedy policy`）表，还会额外打印：
 
-- 从起点出发的实际贪心 rollout
+- 从起点出发的实际贪心轨迹（`rollout`）
 
 这样可以直接区分“整张策略表”和“真正走出来的路径”。
 
@@ -96,7 +96,7 @@ python train.py --episodes 800 --max-steps-per-episode 500
 
 所以两边看到的路径或数值不同是正常的，不表示实现冲突。
 
-### `greedy policy` 表不是一条完整路径
+### 贪心策略（`greedy policy`）表不是一条完整路径
 
 打印出来的策略表表示的是：
 
@@ -116,7 +116,7 @@ python train.py --episodes 800 --max-steps-per-episode 500
 
 ## 相关文档
 
-- [SARSA 是怎么用“下一步真实动作”更新 Q 表的](../../docs/tabular/sarsa-step-by-step.md)
-- [SARSA 和 Q-Learning 在 CliffWalking 里会学出什么区别](../../docs/tabular/sarsa-vs-q-learning.md)
-- [Q-Learning 是怎么一步步把 Q 表学出来的](../../docs/tabular/q-learning-step-by-step.md)
-- [环境安装说明](../../docs/setup.md)
+- [SARSA 是怎么用“下一步真实动作”更新 Q 表的](../../notes/04-SARSA 是怎么用“下一步真实动作”更新 Q 表的.md)
+- [SARSA 和 Q 学习（Q-Learning）在 CliffWalking 里会学出什么区别](../../notes/05-SARSA 和 Q-Learning 在 CliffWalking 里会学出什么区别.md)
+- [Q 学习（Q-Learning）是怎么一步步把 Q 表学出来的](../../notes/03-Q-Learning 是怎么一步步把 Q 表学出来的.md)
+- [环境安装说明](../../notes/00-环境安装.md)

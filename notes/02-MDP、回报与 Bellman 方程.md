@@ -1,4 +1,4 @@
-# MDP、回报与 Bellman 方程
+# 马尔可夫决策过程（MDP）、回报与 Bellman 方程
 
 强化学习研究的是：智能体如何通过和环境交互来学习决策。
 
@@ -9,7 +9,7 @@
 3. 环境返回奖励 $r_t$
 4. 环境转移到下一个状态 $s_{t+1}$
 
-## Markov Decision Process
+## 马尔可夫决策过程（Markov Decision Process）
 
 很多强化学习问题都可以抽象成 MDP，也就是马尔可夫决策过程：
 
@@ -25,7 +25,7 @@ $$
 
 其中“马尔可夫性”的核心是：下一步只依赖当前状态和动作，而不依赖更早的历史。
 
-## Return
+## 回报（Return）
 
 强化学习不只关心当前一步奖励，而是关心从某个时刻开始的累计回报：
 
@@ -35,7 +35,7 @@ $$
 
 $\gamma$ 越接近 $1$，越重视长期收益；越接近 $0$，越重视短期收益。
 
-## Value Function
+## 价值函数（Value Function）
 
 为了评价“当前状态到底好不好”，需要定义值函数。
 
@@ -47,7 +47,7 @@ $V^\pi(s)$ 表示：在策略 $\pi$ 下，从状态 $s$ 出发未来能获得的
 
 $Q^\pi(s, a)$ 表示：在策略 $\pi$ 下，在状态 $s$ 先执行动作 $a$，之后继续按策略行动时的期望回报。
 
-## Bellman Equation
+## Bellman 方程（Bellman Equation）
 
 Bellman 方程的核心思想是：
 
@@ -67,9 +67,9 @@ $$
 
 很多强化学习算法都建立在这个递推思想上。
 
-## 为什么 Q-Learning 适合作为起点
+## 为什么 Q 学习（Q-Learning）适合作为起点
 
-Q-Learning 的优势是：
+Q 学习（Q-Learning）的优势是：
 
 - 不需要先引入神经网络
 - 直接围绕 $Q(s, a)$ 更新
@@ -96,5 +96,5 @@ $$
 
 推荐继续阅读：
 
-- [第一次理解强化学习](../getting-started/first-questions.md)
-- [Q-Learning 是怎么一步步把 Q 表学出来的](../tabular/q-learning-step-by-step.md)
+- [第一次理解强化学习](./01-第一次理解强化学习.md)
+- [Q 学习（Q-Learning）是怎么一步步把 Q 表学出来的](./03-Q-Learning 是怎么一步步把 Q 表学出来的.md)

@@ -1,4 +1,4 @@
-# Q-Learning 是怎么一步步把 Q 表学出来的
+# Q 学习（Q-Learning）是怎么一步步把 Q 表学出来的
 
 这一篇不再停留在抽象定义，而是直接看：
 
@@ -12,7 +12,7 @@
 
 - 环境：`FrozenLake-v1`
 - 设置：`is_slippery=False`
-- 算法：`Tabular Q-Learning`
+- 算法：表格型 Q 学习（`Tabular Q-Learning`）
 
 地图如下：
 
@@ -49,7 +49,7 @@ $$
 
 在状态 $s$ 下执行动作 $a$ 的长期价值估计。
 
-Q-learning 的更新公式是：
+Q 学习（Q-Learning）的更新公式是：
 
 $$
 Q(s, a) \leftarrow Q(s, a) + \alpha \left[ r + \gamma \max_{a'} Q(s', a') - Q(s, a) \right]
@@ -212,7 +212,7 @@ $$
 
 核心训练脚本见：
 
-- [train.py](../../projects/frozenlake-tabular-q/train.py)
+- [train.py](../projects/01-frozenlake-tabular-q/train.py)
 
 真正修改 Q 表的是这三行：
 
@@ -226,13 +226,13 @@ q_table[state, action] += config.alpha * td_error
 
 教学脚本见：
 
-- [trace_q_updates.py](../../projects/frozenlake-tabular-q/trace_q_updates.py)
+- [trace_q_updates.py](../projects/01-frozenlake-tabular-q/trace_q_updates.py)
 
 运行：
 
 ```bash
 conda activate ReinforcementLearning
-cd projects/frozenlake-tabular-q
+cd projects/01-frozenlake-tabular-q
 python trace_q_updates.py --episodes 6
 ```
 
@@ -247,4 +247,4 @@ python trace_q_updates.py --episodes 6
 - 更新前 Q 值
 - 更新后 Q 值
 
-如果这是第一次接触 Q-learning，这个脚本通常比直接盯着公式更容易建立直觉。
+如果这是第一次接触 Q 学习（Q-Learning），这个脚本通常比直接盯着公式更容易建立直觉。
