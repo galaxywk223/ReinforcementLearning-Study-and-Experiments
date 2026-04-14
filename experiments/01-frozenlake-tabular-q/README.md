@@ -4,7 +4,7 @@
 
 主说明请看：
 
-- [03-Q-Learning是怎么一步步把Q表学出来的](../../notes/03-Q-Learning是怎么一步步把Q表学出来的.md)
+- [03-Q-Learning的值传播与Q表更新](../../notes/03-Q-Learning的值传播与Q表更新.md)
 
 ## 常用命令
 
@@ -24,4 +24,4 @@ python trace_q_updates.py --episodes 6
 ## 目录文件
 
 - `train.py`：完整训练入口
-- `trace_q_updates.py`：固定成功路径的教学脚本
+- `trace_q_updates.py`：固定成功路径的更新追踪脚本

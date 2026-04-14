@@ -51,9 +51,9 @@ $$
 
 很多算法的区别，最后都体现在“下一步价值到底怎么估计”。
 
-## 为什么先学 Q-Learning
+## 为什么先看 Q-Learning
 
-`Q-Learning` 适合作为起点，原因主要是：
+`Q-Learning` 常作为起点，原因主要是：
 
 - 不需要神经网络
 - 直接围绕 $Q(s, a)$ 更新
@@ -69,6 +69,6 @@ $$
 
 ## 对应内容
 
-- [01-第一次理解强化学习](./01-第一次理解强化学习.md)
-- [03-Q-Learning是怎么一步步把Q表学出来的](./03-Q-Learning是怎么一步步把Q表学出来的.md)
+- [01-强化学习、状态、动作与Q值](./01-强化学习、状态、动作与Q值.md)
+- [03-Q-Learning的值传播与Q表更新](./03-Q-Learning的值传播与Q表更新.md)
 - [01-frozenlake-tabular-q](../experiments/01-frozenlake-tabular-q/README.md)

@@ -4,7 +4,7 @@
 
 主说明请看：
 
-- [05-MonteCarlo是怎么用整局回报更新动作价值的](../../notes/05-MonteCarlo是怎么用整局回报更新动作价值的.md)
+- [05-MonteCarlo的整局回报与动作价值更新](../../notes/05-MonteCarlo的整局回报与动作价值更新.md)
 
 ## 常用命令
 
@@ -26,4 +26,4 @@ python trace_mc_updates.py --episodes 3
 ## 目录文件
 
 - `train.py`：完整训练入口
-- `trace_mc_updates.py`：逐局打印回报传播的教学脚本
+- `trace_mc_updates.py`：逐局打印回报传播的回报追踪脚本

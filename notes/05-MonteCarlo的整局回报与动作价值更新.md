@@ -1,4 +1,4 @@
-# MonteCarlo是怎么用整局回报更新动作价值的
+# MonteCarlo的整局回报与动作价值更新
 
 前面的 `Q-Learning` 和 `SARSA` 都是在走一步之后就立刻更新。这篇换一个角度：先把一整局打完，再回头用整局真实回报更新动作价值。
 
@@ -32,7 +32,7 @@ $$
 
 ## 为什么用 `Blackjack`
 
-`Blackjack-v1` 很适合学 `Monte Carlo`，因为它：
+`Blackjack-v1` 便于观察 `Monte Carlo`，因为它：
 
 - 是回合制环境
 - 每局都一定结束
@@ -58,7 +58,7 @@ $$
 
 如果 $\gamma = 1.0$，那么这局里两步动作的整局回报都是 `1`。也就是说，第一步虽然当下没有奖励，但它最终还是因为这局赢了而拿到正回报。
 
-这就是 `Monte Carlo` 的直觉：动作值不是看眼前，而是看整局最后的真实结果。
+这说明 `Monte Carlo` 的动作值不是只看眼前奖励，而是依赖整局最终结果。
 
 ## `First-Visit` 是什么意思
 
@@ -99,7 +99,7 @@ $$
 - 有可用 `A` 时，策略会更敢继续要牌
 - 同一个玩家点数下，庄家明牌不同会改变最优动作
 
-这些现象很适合用 `Monte Carlo` 来理解，因为它们本来就依赖“整局最后到底赢没赢”的真实结果。
+这些现象可以直接用 `Monte Carlo` 的更新方式来解释，因为它们本来就依赖“整局最后到底赢没赢”的真实结果。
 
 如果想看训练曲线，也可以再配合：
 
@@ -135,7 +135,7 @@ step_size = 1.0 / visit_counts[table_index]
 q_table[table_index] += step_size * (returns[index] - q_table[table_index])
 ```
 
-## 教学脚本
+## 回报追踪脚本
 
 - [trace_mc_updates.py](../experiments/03-blackjack-monte-carlo/trace_mc_updates.py)
 
@@ -146,9 +146,9 @@ cd experiments/03-blackjack-monte-carlo
 python trace_mc_updates.py --episodes 3
 ```
 
-这个脚本会把每局里的状态、动作、即时奖励和最终回报一起打印出来，比只看公式更容易建立直觉。
+这个脚本会把每局里的状态、动作、即时奖励和最终回报一起打印出来，便于把整局回报和状态动作更新直接对应起来。
 
 ## 对应内容
 
 - [03-blackjack-monte-carlo](../experiments/03-blackjack-monte-carlo/README.md)
-- [04-SARSA是怎么用下一步真实动作更新Q表的](./04-SARSA是怎么用下一步真实动作更新Q表的.md)
+- [04-SARSA的时序更新与策略差异](./04-SARSA的时序更新与策略差异.md)

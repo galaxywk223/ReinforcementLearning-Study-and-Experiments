@@ -1,4 +1,4 @@
-# SARSA是怎么用下一步真实动作更新Q表的
+# SARSA的时序更新与策略差异
 
 这篇笔记把 `SARSA` 的公式、`CliffWalking` 里的策略差异，以及代表实验观察放到一起看。核心问题只有一个：为什么把“下一步真实会选到的动作”带进更新之后，学出来的策略会更保守。
 
@@ -71,11 +71,11 @@ $$
 -1 + 0.9 \times 10 = 8
 $$
 
-这就是 `SARSA` 的直觉核心：它会把探索时可能走歪的风险一起记进当前动作价值。
+这说明 `SARSA` 会把探索时可能走歪的风险一起记进当前动作价值。
 
 ## 为什么用 `CliffWalking`
 
-`CliffWalking-v1` 很适合看这个差别，因为最短路通常贴着悬崖边，而训练时策略还带有探索，一旦走歪就可能掉下悬崖并回到起点。
+`CliffWalking-v1` 很便于观察这个差别，因为最短路通常贴着悬崖边，而训练时策略还带有探索，一旦走歪就可能掉下悬崖并回到起点。
 
 于是这两个算法会自然分开：
 
@@ -162,7 +162,7 @@ q_table[next_state, next_action]
 
 这里明确把“下一状态 + 真实下一动作”一起带入了更新。
 
-## 教学脚本和对比脚本
+## 追踪脚本和对比脚本
 
 - [trace_sarsa_updates.py](../experiments/02-cliffwalking-tabular-sarsa/trace_sarsa_updates.py)
 - [compare_sarsa_q_learning.py](../experiments/02-cliffwalking-tabular-sarsa/compare_sarsa_q_learning.py)
@@ -175,5 +175,5 @@ q_table[next_state, next_action]
 ## 对应内容
 
 - [02-cliffwalking-tabular-sarsa](../experiments/02-cliffwalking-tabular-sarsa/README.md)
-- [03-Q-Learning是怎么一步步把Q表学出来的](./03-Q-Learning是怎么一步步把Q表学出来的.md)
-- [05-MonteCarlo是怎么用整局回报更新动作价值的](./05-MonteCarlo是怎么用整局回报更新动作价值的.md)
+- [03-Q-Learning的值传播与Q表更新](./03-Q-Learning的值传播与Q表更新.md)
+- [05-MonteCarlo的整局回报与动作价值更新](./05-MonteCarlo的整局回报与动作价值更新.md)

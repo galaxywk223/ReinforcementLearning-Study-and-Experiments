@@ -1,6 +1,6 @@
-# Q-Learning是怎么一步步把Q表学出来的
+# Q-Learning的值传播与Q表更新
 
-这篇笔记直接看一个最小实验，目标只有一个：弄清 Q 值为什么不是一次学出来，而是沿着成功路径逐步往前传播。
+这篇笔记用一个最小实验说明：Q 值为什么不是一次写入完整结果，而是沿着成功路径逐步向前传播。
 
 ## 固定一个最小实验
 
@@ -123,7 +123,7 @@ $$
 
 ## 前 6 轮的真实数值
 
-下面这些数值来自教学脚本的真实输出：
+下面这些数值来自更新追踪脚本的真实输出：
 
 | Episode | $Q(0, D)$ | $Q(4, D)$ | $Q(8, R)$ | $Q(9, D)$ | $Q(13, R)$ | $Q(14, R)$ |
 | ------- | ---------: | --------: | --------: | --------: | ---------: | ---------: |
@@ -160,7 +160,7 @@ $$
 
 所以完整训练里最该看的，不只是“最后成功率是多少”，而是这条曲线为什么会慢慢抬起来，而不是第一轮就跳上去。
 
-## 代码和教学脚本
+## 代码与追踪脚本
 
 训练脚本：
 
@@ -181,7 +181,7 @@ td_error = td_target - q_table[state, action]
 q_table[state, action] += config.alpha * td_error
 ```
 
-教学脚本：
+更新追踪脚本：
 
 - [trace_q_updates.py](../experiments/01-frozenlake-tabular-q/trace_q_updates.py)
 
@@ -195,4 +195,4 @@ python trace_q_updates.py --episodes 6
 ## 对应内容
 
 - [01-frozenlake-tabular-q](../experiments/01-frozenlake-tabular-q/README.md)
-- [04-SARSA是怎么用下一步真实动作更新Q表的](./04-SARSA是怎么用下一步真实动作更新Q表的.md)
+- [04-SARSA的时序更新与策略差异](./04-SARSA的时序更新与策略差异.md)

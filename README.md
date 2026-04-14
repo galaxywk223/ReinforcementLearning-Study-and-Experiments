@@ -1,31 +1,31 @@
 # 强化学习学习与实验
 
-这个仓库整理强化学习入门阶段的学习笔记和可运行实验。正文尽量收拢在 `notes/` 里，`experiments/` 主要保留代码和最小运行说明，避免同一个主题被拆成两条阅读线。
+这个仓库整理强化学习基础主题的学习笔记和可运行实验。正文尽量收拢在 `notes/` 里，`experiments/` 主要保留代码与最小运行说明，避免同一个主题分散到多处。
 
 ## 当前内容
 
-- [notes/README.md](notes/README.md)：主阅读入口，按学习顺序收录正文
+- [notes/README.md](notes/README.md)：按主题顺序整理正文
 - [experiments/README.md](experiments/README.md)：代码目录索引和运行入口
 - [assets/figures/](assets/figures)：主笔记里引用的代表结果图
 
 ## 推荐阅读顺序
 
 1. [00-环境安装与运行](notes/00-环境安装与运行.md)
-2. [01-第一次理解强化学习](notes/01-第一次理解强化学习.md)
+2. [01-强化学习、状态、动作与Q值](notes/01-强化学习、状态、动作与Q值.md)
 3. [02-MDP、回报与Bellman方程](notes/02-MDP、回报与Bellman方程.md)
-4. [03-Q-Learning是怎么一步步把Q表学出来的](notes/03-Q-Learning是怎么一步步把Q表学出来的.md)
-5. [04-SARSA是怎么用下一步真实动作更新Q表的](notes/04-SARSA是怎么用下一步真实动作更新Q表的.md)
-6. [05-MonteCarlo是怎么用整局回报更新动作价值的](notes/05-MonteCarlo是怎么用整局回报更新动作价值的.md)
+4. [03-Q-Learning的值传播与Q表更新](notes/03-Q-Learning的值传播与Q表更新.md)
+5. [04-SARSA的时序更新与策略差异](notes/04-SARSA的时序更新与策略差异.md)
+6. [05-MonteCarlo的整局回报与动作价值更新](notes/05-MonteCarlo的整局回报与动作价值更新.md)
 
 如果只想找代码和命令，再去看 [experiments/README.md](experiments/README.md)。
 
 ## 主题与代码对应
 
-| 主笔记 | 配套实验目录 | 环境 | 方法 |
+| 主笔记 | 对应实验目录 | 环境 | 方法 |
 | --- | --- | --- | --- |
-| [03-Q-Learning是怎么一步步把Q表学出来的](notes/03-Q-Learning是怎么一步步把Q表学出来的.md) | [01-frozenlake-tabular-q](experiments/01-frozenlake-tabular-q/README.md) | `FrozenLake-v1` | `Tabular Q-Learning` |
-| [04-SARSA是怎么用下一步真实动作更新Q表的](notes/04-SARSA是怎么用下一步真实动作更新Q表的.md) | [02-cliffwalking-tabular-sarsa](experiments/02-cliffwalking-tabular-sarsa/README.md) | `CliffWalking-v1` | `Tabular SARSA` |
-| [05-MonteCarlo是怎么用整局回报更新动作价值的](notes/05-MonteCarlo是怎么用整局回报更新动作价值的.md) | [03-blackjack-monte-carlo](experiments/03-blackjack-monte-carlo/README.md) | `Blackjack-v1` | `First-Visit Monte Carlo Control` |
+| [03-Q-Learning的值传播与Q表更新](notes/03-Q-Learning的值传播与Q表更新.md) | [01-frozenlake-tabular-q](experiments/01-frozenlake-tabular-q/README.md) | `FrozenLake-v1` | `Tabular Q-Learning` |
+| [04-SARSA的时序更新与策略差异](notes/04-SARSA的时序更新与策略差异.md) | [02-cliffwalking-tabular-sarsa](experiments/02-cliffwalking-tabular-sarsa/README.md) | `CliffWalking-v1` | `Tabular SARSA` |
+| [05-MonteCarlo的整局回报与动作价值更新](notes/05-MonteCarlo的整局回报与动作价值更新.md) | [03-blackjack-monte-carlo](experiments/03-blackjack-monte-carlo/README.md) | `Blackjack-v1` | `First-Visit Monte Carlo Control` |
 
 ## 快速开始
 
@@ -65,7 +65,7 @@ python train.py --episodes 4000 --render-final-policy
 | --- | ---: | ---: | ---: |
 | `first-full-run` | 4000 | `0.73` | `0.73` |
 
-对应主笔记：[03-Q-Learning是怎么一步步把Q表学出来的](notes/03-Q-Learning是怎么一步步把Q表学出来的.md)
+对应主笔记：[03-Q-Learning的值传播与Q表更新](notes/03-Q-Learning的值传播与Q表更新.md)
 
 ### SARSA / CliffWalking
 
@@ -77,7 +77,7 @@ python train.py --episodes 4000 --render-final-policy
 | --- | ---: | ---: | ---: | ---: |
 | `sarsa-baseline` | 800 | `-17.0` | `17.0` | `0.0` |
 
-对应主笔记：[04-SARSA是怎么用下一步真实动作更新Q表的](notes/04-SARSA是怎么用下一步真实动作更新Q表的.md)
+对应主笔记：[04-SARSA的时序更新与策略差异](notes/04-SARSA的时序更新与策略差异.md)
 
 ### Monte Carlo / Blackjack
 
@@ -89,7 +89,7 @@ python train.py --episodes 4000 --render-final-policy
 | --- | ---: | ---: | ---: | ---: |
 | `monte-carlo-reference-500k` | 500000 | `-0.0413` | `0.4350` | `0.0887` |
 
-对应主笔记：[05-MonteCarlo是怎么用整局回报更新动作价值的](notes/05-MonteCarlo是怎么用整局回报更新动作价值的.md)
+对应主笔记：[05-MonteCarlo的整局回报与动作价值更新](notes/05-MonteCarlo的整局回报与动作价值更新.md)
 
 ## 仓库结构
 
@@ -105,11 +105,11 @@ ReinforcementLearning-Study-and-Experiments/
 ├─ notes/
 │  ├─ README.md
 │  ├─ 00-环境安装与运行.md
-│  ├─ 01-第一次理解强化学习.md
+│  ├─ 01-强化学习、状态、动作与Q值.md
 │  ├─ 02-MDP、回报与Bellman方程.md
-│  ├─ 03-Q-Learning是怎么一步步把Q表学出来的.md
-│  ├─ 04-SARSA是怎么用下一步真实动作更新Q表的.md
-│  └─ 05-MonteCarlo是怎么用整局回报更新动作价值的.md
+│  ├─ 03-Q-Learning的值传播与Q表更新.md
+│  ├─ 04-SARSA的时序更新与策略差异.md
+│  └─ 05-MonteCarlo的整局回报与动作价值更新.md
 ├─ environment.yml
 ├─ requirements.txt
 └─ README.md

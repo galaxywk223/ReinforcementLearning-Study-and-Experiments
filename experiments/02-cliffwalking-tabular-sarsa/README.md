@@ -4,7 +4,7 @@
 
 主说明请看：
 
-- [04-SARSA是怎么用下一步真实动作更新Q表的](../../notes/04-SARSA是怎么用下一步真实动作更新Q表的.md)
+- [04-SARSA的时序更新与策略差异](../../notes/04-SARSA的时序更新与策略差异.md)
 
 ## 常用命令
 
@@ -27,5 +27,5 @@ python compare_sarsa_q_learning.py --episodes 800
 ## 目录文件
 
 - `train.py`：完整训练入口
-- `trace_sarsa_updates.py`：固定安全路径的教学脚本
+- `trace_sarsa_updates.py`：固定安全路径的更新追踪脚本
 - `compare_sarsa_q_learning.py`：和 `Q-Learning` 的对比脚本
