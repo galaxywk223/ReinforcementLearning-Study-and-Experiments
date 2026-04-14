@@ -1,12 +1,14 @@
 # 强化学习学习与实验
 
-这个仓库整理强化学习基础主题的学习笔记和可运行实验。正文尽量收拢在 `notes/` 里，`experiments/` 主要保留代码与最小运行说明，避免同一个主题分散到多处。
+这个仓库整理了我在强化学习方向上的学习笔记和配套实验。笔记以中文为主，实验提供可直接运行的 Python 实现和最小运行说明，内容会继续补充。
 
-## 当前内容
+## 内容概览
 
-- [notes/README.md](notes/README.md)：按主题顺序整理正文
-- [experiments/README.md](experiments/README.md)：代码目录索引和运行入口
-- [assets/figures/](assets/figures)：主笔记里引用的代表结果图
+目前仓库包含以下内容：
+
+- [notes/README.md](notes/README.md)：按主题顺序整理的笔记正文
+- [experiments/README.md](experiments/README.md)：实验目录索引和运行入口
+- [assets/figures/](assets/figures)：主笔记中引用的结果图
 
 ## 推荐阅读顺序
 
