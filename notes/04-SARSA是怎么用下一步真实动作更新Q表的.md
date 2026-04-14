@@ -1,6 +1,6 @@
 # SARSA是怎么用下一步真实动作更新Q表的
 
-这篇笔记只看 `SARSA` 和 `Q-Learning` 最关键的一点区别：更新时用的是“下一状态里的最优动作”，还是“下一状态里真实会执行的动作”。
+这篇笔记把 `SARSA` 的公式、`CliffWalking` 里的策略差异，以及代表实验观察放到一起看。核心问题只有一个：为什么把“下一步真实会选到的动作”带进更新之后，学出来的策略会更保守。
 
 ## `SARSA` 更新式
 
@@ -43,7 +43,7 @@ $$
 4. 转移到下一状态 $s'$
 5. 再从 $s'$ 里选出下一步动作 $a'$
 
-所以 $a$ 和 $a'$ 不是同一个动作，而是前后两个时间点的动作。
+所以 `SARSA` 不是只看下一状态，而是把“下一状态 + 下一动作”一起写进目标值。
 
 ## 一个最小例子
 
@@ -71,20 +71,25 @@ $$
 -1 + 0.9 \times 10 = 8
 $$
 
-所以 `SARSA` 会把探索时可能走歪的风险一起记到当前动作价值里。
+这就是 `SARSA` 的直觉核心：它会把探索时可能走歪的风险一起记进当前动作价值。
 
 ## 为什么用 `CliffWalking`
 
-`CliffWalking-v1` 很适合看这个差别，因为最短路通常贴着悬崖边，而训练时一旦探索出错，就可能掉下悬崖并回到起点。
+`CliffWalking-v1` 很适合看这个差别，因为最短路通常贴着悬崖边，而训练时策略还带有探索，一旦走歪就可能掉下悬崖并回到起点。
 
-在这种环境里：
+于是这两个算法会自然分开：
 
-- `Q-Learning` 更容易偏向理论上更短的路
+- `Q-Learning` 更像在问：“如果后面都选最好动作，这一步值多少？”
+- `SARSA` 更像在问：“如果后面继续按当前策略走，这一步值多少？”
+
+所以常见现象是：
+
+- `Q-Learning` 更容易偏向更短路径
 - `SARSA` 更容易学到离悬崖远一点的安全路径
 
 ## 固定一条安全路径看更新
 
-为了看清数值传播，可以先固定一条不踩悬崖的路径：
+为了把数值传播看清楚，可以先固定一条不踩悬崖的路径：
 
 ```text
 U -> R -> R -> R -> R -> R -> R -> R -> R -> R -> R -> R -> D
@@ -96,11 +101,49 @@ U -> R -> R -> R -> R -> R -> R -> R -> R -> R -> R -> R -> D
 
 这和 `Q-Learning` 一样都有“价值传播”，不同的是 `SARSA` 传播的是“按当前策略真实会发生的后续代价”。
 
+## 放到完整训练里会看到什么
+
+当前仓库的 `SARSA` 基线实验结果是：
+
+- 回合数：`800`
+- 评估平均回报：`-17.0`
+- 平均到达步数：`17.0`
+- 平均掉崖次数：`0.0`
+
+![CliffWalking reward curve](../assets/figures/cliffwalking/reward_curve.png)
+
+这里最值得看的不是“是否到终点”，而是：
+
+- 它虽然不是最短路，但稳定到达终点
+- 评估阶段几乎不掉崖
+- 这正说明 `SARSA` 把探索风险算进了当前动作价值
+
+也因此，实验里的 `greedy policy` 表不能直接当成“一条已经走出来的路径”。那张表表示的是“每个状态最推荐的动作”；真正路径还要从起点一步步滚出来，才知道会不会掉崖、会不会进入循环。
+
+## 和 `Q-Learning` 对比时该看什么
+
+如果把 `SARSA` 和 `Q-Learning` 放到同一个 `CliffWalking` 里比较，建议重点看：
+
+- 平均回报
+- 平均到达步数
+- 平均掉崖次数
+- 最终贪心策略是不是贴着悬崖边
+
+这个环境的关键不在于“能不能到终点”，而在于“到终点的代价和风险有多大”。
+
 ## 代码位置
 
 训练脚本：
 
 - [train.py](../experiments/02-cliffwalking-tabular-sarsa/train.py)
+
+直接运行：
+
+```bash
+cd experiments/02-cliffwalking-tabular-sarsa
+python train.py --episodes 800 --render-final-policy
+python compare_sarsa_q_learning.py --episodes 800
+```
 
 核心更新：
 
@@ -119,19 +162,18 @@ q_table[next_state, next_action]
 
 这里明确把“下一状态 + 真实下一动作”一起带入了更新。
 
-## 教学脚本
+## 教学脚本和对比脚本
 
 - [trace_sarsa_updates.py](../experiments/02-cliffwalking-tabular-sarsa/trace_sarsa_updates.py)
+- [compare_sarsa_q_learning.py](../experiments/02-cliffwalking-tabular-sarsa/compare_sarsa_q_learning.py)
 
-运行：
+两者回答的问题不一样：
 
-```bash
-cd experiments/02-cliffwalking-tabular-sarsa
-python trace_sarsa_updates.py --episodes 2
-```
+- `trace` 脚本固定一条路径，只演示 `SARSA` 的更新过程
+- `compare` 脚本让两个算法自己训练，再比较最终结果
 
 ## 对应内容
 
-- [05-SARSA和Q-Learning在CliffWalking里会学出什么区别](./05-SARSA和Q-Learning在CliffWalking里会学出什么区别.md)
 - [02-cliffwalking-tabular-sarsa](../experiments/02-cliffwalking-tabular-sarsa/README.md)
 - [03-Q-Learning是怎么一步步把Q表学出来的](./03-Q-Learning是怎么一步步把Q表学出来的.md)
+- [05-MonteCarlo是怎么用整局回报更新动作价值的](./05-MonteCarlo是怎么用整局回报更新动作价值的.md)

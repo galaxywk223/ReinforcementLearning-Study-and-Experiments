@@ -81,11 +81,42 @@ $$
 
 可以把它理解成：不断收集完整对局，然后对这个状态动作对历史上看到的整局结果做平均。
 
+## 放到完整训练里会看到什么
+
+当前仓库的 `Blackjack` 基线实验结果是：
+
+- 回合数：`500000`
+- 评估平均回报：`-0.0413`
+- 胜率：`0.4350`
+- 平局率：`0.0887`
+- 负率：`0.4763`
+
+![Blackjack policy heatmaps](../assets/figures/blackjack/policy_heatmaps.png)
+
+这个实验最值得看的不是“平均回报是不是很高”，而是策略边界会逐渐变清楚：
+
+- 没有可用 `A` 时，玩家通常在更保守的点数停牌
+- 有可用 `A` 时，策略会更敢继续要牌
+- 同一个玩家点数下，庄家明牌不同会改变最优动作
+
+这些现象很适合用 `Monte Carlo` 来理解，因为它们本来就依赖“整局最后到底赢没赢”的真实结果。
+
+如果想看训练曲线，也可以再配合：
+
+![Blackjack reward curve](../assets/figures/blackjack/reward_curve.png)
+
 ## 代码位置
 
 训练脚本：
 
 - [train.py](../experiments/03-blackjack-monte-carlo/train.py)
+
+直接运行：
+
+```bash
+cd experiments/03-blackjack-monte-carlo
+python train.py --episodes 200000 --render-final-policy
+```
 
 先在回合结束后反向计算回报：
 

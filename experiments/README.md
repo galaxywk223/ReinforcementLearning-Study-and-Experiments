@@ -1,14 +1,14 @@
 # 实验代码
 
-这个目录收录仓库中的可运行实验。每个实验都有独立的 `README`，笔记负责解释概念，实验负责把对应方法跑起来。
+这个目录只负责代码和运行入口。建议先从 [notes/README.md](../notes/README.md) 开始阅读，再按需要进入具体实验目录运行脚本。
 
 ## 当前实验
 
-| 目录 | 环境 | 方法 | 说明 |
+| 目录 | 主笔记 | 主入口 | 说明 |
 | --- | --- | --- | --- |
-| [FrozenLake 表格型 Q 学习](./01-frozenlake-tabular-q/README.md) | `FrozenLake-v1` | `Tabular Q-Learning` | 观察 Q 值如何沿成功路径逐步传播 |
-| [CliffWalking 表格型 SARSA](./02-cliffwalking-tabular-sarsa/README.md) | `CliffWalking-v1` | `Tabular SARSA` | 观察 `on-policy` 更新与风险规避的关系 |
-| [Blackjack 首次访问蒙特卡洛](./03-blackjack-monte-carlo/README.md) | `Blackjack-v1` | `First-Visit Monte Carlo Control` | 观察整局回报如何更新动作价值 |
+| [01-frozenlake-tabular-q](./01-frozenlake-tabular-q/README.md) | [03-Q-Learning](../notes/03-Q-Learning是怎么一步步把Q表学出来的.md) | `python train.py --episodes 4000 --render-final-policy` | `FrozenLake-v1` 上的表格型 `Q-Learning` |
+| [02-cliffwalking-tabular-sarsa](./02-cliffwalking-tabular-sarsa/README.md) | [04-SARSA](../notes/04-SARSA是怎么用下一步真实动作更新Q表的.md) | `python train.py --episodes 800 --render-final-policy` | `CliffWalking-v1` 上的表格型 `SARSA` |
+| [03-blackjack-monte-carlo](./03-blackjack-monte-carlo/README.md) | [05-MonteCarlo](../notes/05-MonteCarlo是怎么用整局回报更新动作价值的.md) | `python train.py --episodes 200000 --render-final-policy` | `Blackjack-v1` 上的首次访问蒙特卡洛控制 |
 
 ## 运行前准备
 
@@ -25,11 +25,4 @@ conda activate ReinforcementLearning
 pip install -r requirements.txt
 ```
 
-## 对应笔记
-
-- [01-第一次理解强化学习](../notes/01-第一次理解强化学习.md)
-- [02-MDP、回报与Bellman方程](../notes/02-MDP、回报与Bellman方程.md)
-- [03-Q-Learning是怎么一步步把Q表学出来的](../notes/03-Q-Learning是怎么一步步把Q表学出来的.md)
-- [04-SARSA是怎么用下一步真实动作更新Q表的](../notes/04-SARSA是怎么用下一步真实动作更新Q表的.md)
-- [05-SARSA和Q-Learning在CliffWalking里会学出什么区别](../notes/05-SARSA和Q-Learning在CliffWalking里会学出什么区别.md)
-- [06-MonteCarlo是怎么用整局回报更新动作价值的](../notes/06-MonteCarlo是怎么用整局回报更新动作价值的.md)
+更完整的概念解释和结果解读，都已经回到对应主笔记里。
