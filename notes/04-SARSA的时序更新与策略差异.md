@@ -110,7 +110,9 @@ U -> R -> R -> R -> R -> R -> R -> R -> R -> R -> R -> R -> D
 - 平均到达步数：`17.0`
 - 平均掉崖次数：`0.0`
 
-![CliffWalking reward curve](../assets/figures/cliffwalking/reward_curve.png)
+<p align="center">
+  <img src="../assets/figures/cliffwalking/reward_curve.png" alt="CliffWalking SARSA 奖励曲线" width="920" />
+</p>
 
 这里最值得看的不是“是否到终点”，而是：
 

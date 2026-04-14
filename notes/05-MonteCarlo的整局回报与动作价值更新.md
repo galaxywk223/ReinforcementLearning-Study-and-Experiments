@@ -91,7 +91,9 @@ $$
 - 平局率：`0.0887`
 - 负率：`0.4763`
 
-![Blackjack policy heatmaps](../assets/figures/blackjack/policy_heatmaps.png)
+<p align="center">
+  <img src="../assets/figures/blackjack/policy_heatmaps.png" alt="Blackjack Monte Carlo 策略热力图" width="920" />
+</p>
 
 这个实验最值得看的不是“平均回报是不是很高”，而是策略边界会逐渐变清楚：
 
@@ -103,7 +105,9 @@ $$
 
 如果想看训练曲线，也可以再配合：
 
-![Blackjack reward curve](../assets/figures/blackjack/reward_curve.png)
+<p align="center">
+  <img src="../assets/figures/blackjack/reward_curve.png" alt="Blackjack Monte Carlo 奖励曲线" width="920" />
+</p>
 
 ## 代码位置
 

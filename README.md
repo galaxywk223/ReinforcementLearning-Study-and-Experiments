@@ -1,33 +1,57 @@
 # 强化学习学习与实验
 
-这个仓库整理了我在强化学习方向上的学习笔记和配套实验。笔记以中文为主，实验提供可直接运行的 Python 实现和最小运行说明，内容会继续补充。
+这个仓库整理了强化学习方向的中文学习笔记和配套实验。主阅读层放在 `notes/`，实验入口放在 `experiments/`，每条主线都尽量保留最小可运行代码和结果图，方便把概念解释和训练现象连起来看。
 
-## 内容概览
+## 仓库导航
 
-目前仓库包含以下内容：
+- [notes/README.md](notes/README.md)：章节顺序、阅读建议和笔记主线。
+- [experiments/README.md](experiments/README.md)：实验索引、运行入口和目录速查。
+- [assets/figures/](assets/figures/)：主笔记和 README 中直接引用的结果图。
 
-- [notes/README.md](notes/README.md)：按主题顺序整理的笔记正文
-- [experiments/README.md](experiments/README.md)：实验目录索引和运行入口
-- [assets/figures/](assets/figures)：主笔记中引用的结果图
+## 学习主线
 
-## 推荐阅读顺序
-
-1. [00-环境安装与运行](notes/00-环境安装与运行.md)
-2. [01-强化学习、状态、动作与Q值](notes/01-强化学习、状态、动作与Q值.md)
-3. [02-MDP、回报与Bellman方程](notes/02-MDP、回报与Bellman方程.md)
-4. [03-Q-Learning的值传播与Q表更新](notes/03-Q-Learning的值传播与Q表更新.md)
-5. [04-SARSA的时序更新与策略差异](notes/04-SARSA的时序更新与策略差异.md)
-6. [05-MonteCarlo的整局回报与动作价值更新](notes/05-MonteCarlo的整局回报与动作价值更新.md)
-
-如果只想找代码和命令，再去看 [experiments/README.md](experiments/README.md)。
-
-## 主题与代码对应
-
-| 主笔记 | 对应实验目录 | 环境 | 方法 |
+| 章节 | 主题 | 主要内容 | 实验入口 |
 | --- | --- | --- | --- |
-| [03-Q-Learning的值传播与Q表更新](notes/03-Q-Learning的值传播与Q表更新.md) | [01-frozenlake-tabular-q](experiments/01-frozenlake-tabular-q/README.md) | `FrozenLake-v1` | `Tabular Q-Learning` |
-| [04-SARSA的时序更新与策略差异](notes/04-SARSA的时序更新与策略差异.md) | [02-cliffwalking-tabular-sarsa](experiments/02-cliffwalking-tabular-sarsa/README.md) | `CliffWalking-v1` | `Tabular SARSA` |
-| [05-MonteCarlo的整局回报与动作价值更新](notes/05-MonteCarlo的整局回报与动作价值更新.md) | [03-blackjack-monte-carlo](experiments/03-blackjack-monte-carlo/README.md) | `Blackjack-v1` | `First-Visit Monte Carlo Control` |
+| [00](notes/00-环境安装与运行.md) | 环境安装与运行 | 先把依赖、命令和目录结构跑通 | [实验索引](experiments/README.md) |
+| [01](notes/01-强化学习、状态、动作与Q值.md) | 强化学习基础概念 | 从状态、动作和值函数建立最小直觉 | - |
+| [02](notes/02-MDP、回报与Bellman方程.md) | MDP 与 Bellman 方程 | 把回报、状态转移和 Bellman 递推串起来 | - |
+| [03](notes/03-Q-Learning的值传播与Q表更新.md) | Q-Learning | 观察奖励如何沿着成功轨迹向前传播 | [FrozenLake 实验](experiments/01-frozenlake-tabular-q/README.md) |
+| [04](notes/04-SARSA的时序更新与策略差异.md) | SARSA | 比较 on-policy 更新和风险敏感策略 | [CliffWalking 实验](experiments/02-cliffwalking-tabular-sarsa/README.md) |
+| [05](notes/05-MonteCarlo的整局回报与动作价值更新.md) | Monte Carlo Control | 把整局回报和最终策略边界联系起来 | [Blackjack 实验](experiments/03-blackjack-monte-carlo/README.md) |
+
+## 结果速览
+
+| 主线 | 代表结果 | 主要看点 |
+| --- | --- | --- |
+| FrozenLake / Q-Learning | 评估平均奖励 `0.73`，成功率 `0.73` | 训练曲线如何随着值传播逐步抬升 |
+| CliffWalking / SARSA | 评估平均回报 `-17.0`，平均掉崖次数 `0.0` | 虽然不是最短路，但更稳定地避开高风险区域 |
+| Blackjack / Monte Carlo | 评估平均回报 `-0.0413`，胜率 `0.4350` | 策略边界如何随整局回报统计逐渐变清楚 |
+
+## 精选展示
+
+### Q-Learning / FrozenLake
+
+奖励曲线最适合拿来观察成功轨迹首次出现后，终点奖励如何一轮轮向前传播。
+
+<p align="center">
+  <img src="./assets/figures/frozenlake/reward_curve.png" alt="FrozenLake Q-Learning 奖励曲线" width="920" />
+</p>
+
+### SARSA / CliffWalking
+
+`SARSA` 的典型现象不是最短路，而是把探索风险算进动作价值后形成更稳健的路径选择。
+
+<p align="center">
+  <img src="./assets/figures/cliffwalking/reward_curve.png" alt="CliffWalking SARSA 奖励曲线" width="920" />
+</p>
+
+### Monte Carlo / Blackjack
+
+策略热力图可以把“有无可用 `A`”两种情况下的决策边界直接摆到一起比较。
+
+<p align="center">
+  <img src="./assets/figures/blackjack/policy_heatmaps.png" alt="Blackjack Monte Carlo 策略热力图" width="920" />
+</p>
 
 ## 快速开始
 
@@ -53,46 +77,6 @@ python train.py --episodes 4000 --render-final-policy
 
 更多运行方式见 [00-环境安装与运行](notes/00-环境安装与运行.md)。
 
-## 精选结果
-
-这些结果的解释都已经放回对应主笔记里；这里保留一个总览。
-
-### Q-Learning / FrozenLake
-
-`FrozenLake-v1` 上的表格型 `Q-Learning` 结果可以直接看到奖励曲线逐步抬升。
-
-![FrozenLake reward curve](assets/figures/frozenlake/reward_curve.png)
-
-| 运行名 | 回合数 | 平均奖励 | 成功率 |
-| --- | ---: | ---: | ---: |
-| `first-full-run` | 4000 | `0.73` | `0.73` |
-
-对应主笔记：[03-Q-Learning的值传播与Q表更新](notes/03-Q-Learning的值传播与Q表更新.md)
-
-### SARSA / CliffWalking
-
-`SARSA` 基线实验里，代表性策略保持了 `0` 次平均掉崖，并以较长但稳定的路径到达终点。
-
-![CliffWalking reward curve](assets/figures/cliffwalking/reward_curve.png)
-
-| 运行名 | 回合数 | 平均奖励 | 平均到达步数 | 平均掉崖次数 |
-| --- | ---: | ---: | ---: | ---: |
-| `sarsa-baseline` | 800 | `-17.0` | `17.0` | `0.0` |
-
-对应主笔记：[04-SARSA的时序更新与策略差异](notes/04-SARSA的时序更新与策略差异.md)
-
-### Monte Carlo / Blackjack
-
-`Blackjack` 的公开示例保留了训练曲线和最终策略热力图，便于把整局回报与最终策略对应起来。
-
-![Blackjack policy heatmaps](assets/figures/blackjack/policy_heatmaps.png)
-
-| 运行名 | 回合数 | 平均奖励 | 胜率 | 平局率 |
-| --- | ---: | ---: | ---: | ---: |
-| `monte-carlo-reference-500k` | 500000 | `-0.0413` | `0.4350` | `0.0887` |
-
-对应主笔记：[05-MonteCarlo的整局回报与动作价值更新](notes/05-MonteCarlo的整局回报与动作价值更新.md)
-
 ## 仓库结构
 
 ```text
@@ -117,15 +101,6 @@ ReinforcementLearning-Study-and-Experiments/
 └─ README.md
 ```
 
-## 后续更新
-
-后续内容会继续沿笔记序号往后扩展，优先补下面几条：
-
-1. `TD(0)`、`Expected SARSA` 和 `n-step` 方法
-2. `Monte Carlo` 与 `TD` 方法的对比
-3. `CartPole` 上的 `DQN`
-4. 更完整的策略梯度与 Actor-Critic 实验
-
 ## 开源协议
 
-仓库中的代码和文档基于 [MIT License](LICENSE) 开源。
+仓库中的代码和文档基于 [MIT License](LICENSE) 开源。第三方环境、数据集或外部资料仍遵循各自原始许可。

@@ -150,7 +150,9 @@ $$
 - 评估平均奖励：`0.73`
 - 评估成功率：`0.73`
 
-![FrozenLake reward curve](../assets/figures/frozenlake/reward_curve.png)
+<p align="center">
+  <img src="../assets/figures/frozenlake/reward_curve.png" alt="FrozenLake Q-Learning 奖励曲线" width="920" />
+</p>
 
 这个结果和前面的固定路径推导是连起来的：
 
