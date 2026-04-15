@@ -1,6 +1,6 @@
 # MonteCarlo的整局回报与动作价值更新
 
-前面的 `Q-Learning` 和 `SARSA` 都是在走一步之后就立刻更新。这篇换一个角度：先把一整局打完，再回头用整局真实回报更新动作价值。
+本节讨论在整局结束后基于真实回报更新动作价值的 Monte Carlo 方法。与 `Q-Learning` 和 `SARSA` 的单步更新方式相比，Monte Carlo 先完成整局轨迹，再使用整局回报更新动作价值。
 
 ## 和时序差分最大的不同
 
@@ -32,7 +32,7 @@ $$
 
 ## 为什么用 `Blackjack`
 
-`Blackjack-v1` 便于观察 `Monte Carlo`，因为它：
+`Blackjack-v1` 用于展示 `Monte Carlo`，原因如下：
 
 - 是回合制环境
 - 每局都一定结束
@@ -60,11 +60,11 @@ $$
 
 这说明 `Monte Carlo` 的动作值不是只看眼前奖励，而是依赖整局最终结果。
 
-## `First-Visit` 是什么意思
+## `First-Visit` 的含义
 
 当前仓库实现的是 `First-Visit Monte Carlo Control`。
 
-意思是：
+定义如下：
 
 - 对同一局里的某个 `(state, action)`
 - 只用它第一次出现时对应的整局回报来更新
@@ -79,7 +79,7 @@ $$
 Q(s, a) \leftarrow Q(s, a) + \frac{1}{N}\left(G - Q(s, a)\right)
 $$
 
-可以把它理解成：不断收集完整对局，然后对这个状态动作对历史上看到的整局结果做平均。
+该更新可表述为：不断收集完整对局，并对状态动作对对应的整局结果取样本平均。
 
 ## 放到完整训练里会看到什么
 
@@ -95,15 +95,15 @@ $$
   <img src="../assets/figures/blackjack/policy_heatmaps.png" alt="Blackjack Monte Carlo 策略热力图" width="920" />
 </p>
 
-这个实验最值得看的不是“平均回报是不是很高”，而是策略边界会逐渐变清楚：
+实验结果主要体现为策略边界逐渐清晰：
 
 - 没有可用 `A` 时，玩家通常在更保守的点数停牌
-- 有可用 `A` 时，策略会更敢继续要牌
+- 有可用 `A` 时，策略通常允许更积极的继续要牌动作
 - 同一个玩家点数下，庄家明牌不同会改变最优动作
 
 这些现象可以直接用 `Monte Carlo` 的更新方式来解释，因为它们本来就依赖“整局最后到底赢没赢”的真实结果。
 
-如果想看训练曲线，也可以再配合：
+训练曲线如下，可补充展示回报变化趋势：
 
 <p align="center">
   <img src="../assets/figures/blackjack/reward_curve.png" alt="Blackjack Monte Carlo 奖励曲线" width="920" />
@@ -150,7 +150,7 @@ cd experiments/03-blackjack-monte-carlo
 python trace_mc_updates.py --episodes 3
 ```
 
-这个脚本会把每局里的状态、动作、即时奖励和最终回报一起打印出来，便于把整局回报和状态动作更新直接对应起来。
+这个脚本会把每局里的状态、动作、即时奖励和最终回报一起打印出来，输出内容用于直接对应整局回报与状态动作更新关系。
 
 ## 对应内容
 

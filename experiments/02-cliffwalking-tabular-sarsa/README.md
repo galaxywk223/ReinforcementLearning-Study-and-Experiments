@@ -1,6 +1,6 @@
 # CliffWalking 表格型 SARSA
 
-这个目录只放 `CliffWalking-v1` 上的表格型 `SARSA` 代码和最小运行说明，适合用来观察风险敏感的 on-policy 更新如何影响策略选择。
+这个目录保存 `CliffWalking-v1` 上的表格型 `SARSA` 代码和最小运行说明，用于展示风险敏感的 on-policy 更新如何影响策略选择。
 
 ## 关联笔记
 

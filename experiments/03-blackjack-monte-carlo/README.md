@@ -1,6 +1,6 @@
 # Blackjack 首次访问蒙特卡洛
 
-这个目录只放 `Blackjack-v1` 上的首次访问 Monte Carlo Control 代码和最小运行说明，适合用来观察整局回报如何逐步塑造最终策略边界。
+这个目录保存 `Blackjack-v1` 上的首次访问 Monte Carlo Control 代码和最小运行说明，用于展示整局回报如何逐步塑造最终策略边界。
 
 ## 关联笔记
 

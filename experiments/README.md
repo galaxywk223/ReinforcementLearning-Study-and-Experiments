@@ -1,6 +1,6 @@
 # 实验索引
 
-`experiments/` 负责保存代码和最小运行说明。建议先从 [notes/README.md](../notes/README.md) 建立概念，再按需要进入具体实验目录运行脚本。
+`experiments/` 保存实验代码与最小运行说明。[notes/README.md](../notes/README.md) 对应概念主线，各实验目录提供具体脚本入口。
 
 ## 当前实验
 
@@ -12,17 +12,17 @@
 
 ## 运行前准备
 
-推荐在仓库根目录执行：
+仓库根目录命令如下：
 
 ```bash
 conda env create -f environment.yml
 conda activate ReinforcementLearning
 ```
 
-或者：
+非 `conda` 安装方式如下：
 
 ```bash
 pip install -r requirements.txt
 ```
 
-更完整的环境说明和命令解释都已经放回 [00-环境安装与运行](../notes/00-环境安装与运行.md)。
+更完整的环境说明和命令解释见 [00-环境安装与运行](../notes/00-环境安装与运行.md)。
