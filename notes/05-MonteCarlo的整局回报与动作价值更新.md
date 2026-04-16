@@ -156,3 +156,4 @@ python trace_mc_updates.py --episodes 3
 
 - [03-blackjack-monte-carlo](../experiments/03-blackjack-monte-carlo/README.md)
 - [04-SARSA的时序更新与策略差异](./04-SARSA的时序更新与策略差异.md)
+- [06-n-step SARSA的多步回报与折中更新](./06-n-step-SARSA的多步回报与折中更新.md)

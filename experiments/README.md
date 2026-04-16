@@ -9,6 +9,7 @@
 | [01-frozenlake-tabular-q](./01-frozenlake-tabular-q/README.md) | [03-Q-Learning](../notes/03-Q-Learning的值传播与Q表更新.md) | `python train.py --episodes 4000 --render-final-policy` | `FrozenLake-v1` 上的表格型 `Q-Learning` |
 | [02-cliffwalking-tabular-sarsa](./02-cliffwalking-tabular-sarsa/README.md) | [04-SARSA](../notes/04-SARSA的时序更新与策略差异.md) | `python train.py --episodes 800 --render-final-policy` | `CliffWalking-v1` 上的表格型 `SARSA` |
 | [03-blackjack-monte-carlo](./03-blackjack-monte-carlo/README.md) | [05-MonteCarlo](../notes/05-MonteCarlo的整局回报与动作价值更新.md) | `python train.py --episodes 200000 --render-final-policy` | `Blackjack-v1` 上的首次访问 Monte Carlo Control |
+| [04-cliffwalking-n-step-sarsa](./04-cliffwalking-n-step-sarsa/README.md) | [06-n-step SARSA](../notes/06-n-step-SARSA的多步回报与折中更新.md) | `python train.py --episodes 800 --n-step 4 --render-final-policy` | `CliffWalking-v1` 上的表格型 `4-step SARSA` |
 
 ## 运行前准备
 

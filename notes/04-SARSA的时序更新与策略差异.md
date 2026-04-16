@@ -179,3 +179,4 @@ q_table[next_state, next_action]
 - [02-cliffwalking-tabular-sarsa](../experiments/02-cliffwalking-tabular-sarsa/README.md)
 - [03-Q-Learning的值传播与Q表更新](./03-Q-Learning的值传播与Q表更新.md)
 - [05-MonteCarlo的整局回报与动作价值更新](./05-MonteCarlo的整局回报与动作价值更新.md)
+- [06-n-step SARSA的多步回报与折中更新](./06-n-step-SARSA的多步回报与折中更新.md)
