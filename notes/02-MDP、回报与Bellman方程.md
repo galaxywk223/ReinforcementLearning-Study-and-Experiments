@@ -57,7 +57,7 @@ $$
 ### Bellman 最优性关系
 
 $$
-V^*(s)=\max_a \sum_{s',r} P(s',r \mid s,a)\left[r+\gamma V^*(s')\right]
+V^{*}(s)=\max_a \sum_{s',r} P(s',r \mid s,a)\left[r+\gamma V^{*}(s')\right]
 $$
 
 该关系给出动态规划中的价值迭代入口；当环境模型未知时，后续 `Q-Learning`、`SARSA` 与深度方法会改用采样近似这一目标。
