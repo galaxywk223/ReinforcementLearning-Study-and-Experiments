@@ -21,6 +21,8 @@
 | [06](notes/06-n-step-SARSA的多步回报与折中更新.md) | n-step SARSA | 观察多步回报如何折中单步 TD 和整局回报 | [CliffWalking n-step 实验](experiments/04-cliffwalking-n-step-sarsa/README.md) |
 | [07](notes/07-DQN的经验回放与目标网络.md) | DQN | 从表格型值方法过渡到神经网络动作价值函数 | [CartPole DQN 实验](experiments/05-cartpole-dqn/README.md) |
 
+章节文档采用统一模板，具体规则见 [notes/README.md](notes/README.md) 的“章节模板”部分。
+
 ## 结果速览
 
 | 主线 | 代表结果 | 主要看点 |
