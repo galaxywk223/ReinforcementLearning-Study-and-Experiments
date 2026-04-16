@@ -10,3 +10,4 @@ dependencies:
       - matplotlib==3.10.8
       - gymnasium==1.2.3
       - tqdm==4.67.3
+      - torch==2.6.0

@@ -19,6 +19,7 @@
 | [04](notes/04-SARSA的时序更新与策略差异.md) | SARSA | 比较 on-policy 更新和风险敏感策略 | [CliffWalking 实验](experiments/02-cliffwalking-tabular-sarsa/README.md) |
 | [05](notes/05-MonteCarlo的整局回报与动作价值更新.md) | Monte Carlo Control | 把整局回报和最终策略边界联系起来 | [Blackjack 实验](experiments/03-blackjack-monte-carlo/README.md) |
 | [06](notes/06-n-step-SARSA的多步回报与折中更新.md) | n-step SARSA | 观察多步回报如何折中单步 TD 和整局回报 | [CliffWalking n-step 实验](experiments/04-cliffwalking-n-step-sarsa/README.md) |
+| [07](notes/07-DQN的经验回放与目标网络.md) | DQN | 从表格型值方法过渡到神经网络动作价值函数 | [CartPole DQN 实验](experiments/05-cartpole-dqn/README.md) |
 
 ## 结果速览
 
@@ -28,6 +29,7 @@
 | CliffWalking / SARSA | 评估平均回报 `-17.0`，平均掉崖次数 `0.0` | 虽然不是最短路，但更稳定地避开高风险区域 |
 | Blackjack / Monte Carlo | 评估平均回报 `-0.0413`，胜率 `0.4350` | 策略边界如何随整局回报统计逐渐变清楚 |
 | CliffWalking / 4-step SARSA | 评估平均回报 `-19.0`，平均掉崖次数 `0.0` | 多步回报改变了早期信用分配节奏，但当前基线形成了更长的安全路径 |
+| CartPole / DQN | 评估平均回报 `500.0`，成功率 `1.0` | 经验回放与目标网络让深度值函数在连续状态上稳定训练 |
 
 ## 精选展示
 
@@ -61,6 +63,14 @@
 
 <p align="center">
   <img src="./assets/figures/cliffwalking-n-step/comparison_reward_curve.png" alt="CliffWalking 1-step 与 4-step SARSA 对比曲线" width="920" />
+</p>
+
+### DQN / CartPole
+
+`DQN` 的关键现象不再是单个表格格子的值传播，而是经验回放与目标网络如何让连续状态上的 `Q-network` 逐步学到稳定的平衡策略。
+
+<p align="center">
+  <img src="./assets/figures/cartpole-dqn/reward_curve.png" alt="CartPole DQN 奖励曲线" width="920" />
 </p>
 
 ## 快速开始
@@ -98,7 +108,8 @@ ReinforcementLearning-Study-and-Experiments/
 │  ├─ 01-frozenlake-tabular-q/
 │  ├─ 02-cliffwalking-tabular-sarsa/
 │  ├─ 03-blackjack-monte-carlo/
-│  └─ 04-cliffwalking-n-step-sarsa/
+│  ├─ 04-cliffwalking-n-step-sarsa/
+│  └─ 05-cartpole-dqn/
 ├─ notes/
 │  ├─ README.md
 │  ├─ 00-环境安装与运行.md
@@ -107,7 +118,8 @@ ReinforcementLearning-Study-and-Experiments/
 │  ├─ 03-Q-Learning的值传播与Q表更新.md
 │  ├─ 04-SARSA的时序更新与策略差异.md
 │  ├─ 05-MonteCarlo的整局回报与动作价值更新.md
-│  └─ 06-n-step-SARSA的多步回报与折中更新.md
+│  ├─ 06-n-step-SARSA的多步回报与折中更新.md
+│  └─ 07-DQN的经验回放与目标网络.md
 ├─ environment.yml
 ├─ requirements.txt
 └─ README.md
