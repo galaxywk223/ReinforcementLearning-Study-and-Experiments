@@ -80,13 +80,13 @@ $$
 
 ### 代码入口
 
-- [train.py](../experiments/05-cartpole-dqn/train.py)
-- [trace_dqn_updates.py](../experiments/05-cartpole-dqn/trace_dqn_updates.py)
+- [train.py](../experiments/07-cartpole-dqn/train.py)
+- [trace_dqn_updates.py](../experiments/07-cartpole-dqn/trace_dqn_updates.py)
 
 ### 运行命令
 
 ```bash
-cd experiments/05-cartpole-dqn
+cd experiments/07-cartpole-dqn
 python train.py --episodes 400 --print-eval-rollout
 python trace_dqn_updates.py
 ```
@@ -117,5 +117,5 @@ with torch.no_grad():
 
 ## 继续阅读
 
-- [03-Q-Learning的值传播与Q表更新](./03-Q-Learning的值传播与Q表更新.md)
-- [05-cartpole-dqn](../experiments/05-cartpole-dqn/README.md)
+- [10-REINFORCE的回合策略梯度与高方差问题](./10-REINFORCE的回合策略梯度与高方差问题.md)
+- [07-cartpole-dqn](../experiments/07-cartpole-dqn/README.md)

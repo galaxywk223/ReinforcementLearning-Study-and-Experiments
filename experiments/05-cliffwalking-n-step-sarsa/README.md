@@ -4,7 +4,7 @@
 
 ## 关联笔记
 
-- [06-n-step SARSA的多步回报与折中更新](../../notes/06-n-step-SARSA的多步回报与折中更新.md)
+- [07-n-step SARSA的多步回报与折中更新](../../notes/07-n-step-SARSA的多步回报与折中更新.md)
 
 ## 实验内容
 
@@ -27,7 +27,7 @@
 ## 运行命令
 
 ```bash
-cd experiments/04-cliffwalking-n-step-sarsa
+cd experiments/05-cliffwalking-n-step-sarsa
 python train.py --episodes 800 --n-step 4 --render-final-policy
 python train.py --episodes 1200 --n-step 6 --alpha 0.5 --gamma 0.99 --epsilon-start 0.1 --epsilon-end 0.1 --epsilon-decay 1.0
 python trace_n_step_updates.py --episodes 3 --n-step 4

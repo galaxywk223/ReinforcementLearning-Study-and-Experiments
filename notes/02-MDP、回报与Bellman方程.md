@@ -7,7 +7,7 @@
 - 建立 `MDP` 五元组的统一问题表达。
 - 明确累计回报与状态/动作价值函数的定义。
 - 理解 Bellman 方程在值函数更新中的作用。
-- 说明 `Q-Learning` 作为后续算法入口的原因。
+- 说明动态规划与采样法都可视为 Bellman 目标的不同实现。
 
 ## 核心概念
 
@@ -54,24 +54,25 @@ $$
 Q^\pi(s, a) = \mathbb{E}_\pi \left[ r_{t+1} + \gamma Q^\pi(s_{t+1}, a_{t+1}) \mid s_t = s, a_t = a \right]
 $$
 
-### `Q-Learning` 更新入口
+### Bellman 最优性关系
 
 $$
-Q(s, a) \leftarrow Q(s, a) + \alpha \left[ r + \gamma \max_{a'} Q(s', a') - Q(s, a) \right]
+V^*(s)=\max_a \sum_{s',r} P(s',r \mid s,a)\left[r+\gamma V^*(s')\right]
 $$
 
-该关系是后续 `SARSA`、`Monte Carlo` 与 `n-step` 方法对比的基线。
+该关系给出动态规划中的价值迭代入口；当环境模型未知时，后续 `Q-Learning`、`SARSA` 与深度方法会改用采样近似这一目标。
 
 ## 关联实验
 
-- [01-frozenlake-tabular-q](../experiments/01-frozenlake-tabular-q/README.md)
-- [03-Q-Learning的值传播与Q表更新](./03-Q-Learning的值传播与Q表更新.md)
+- [01-frozenlake-dp](../experiments/01-frozenlake-dp/README.md)
+- [03-动态规划的策略评估、策略迭代与价值迭代](./03-动态规划的策略评估、策略迭代与价值迭代.md)
 
 ## 小结
 
-`MDP` 提供问题抽象，回报定义提供优化目标，Bellman 方程提供递推结构。多数强化学习算法都可视为“在不同估计假设下构造 Bellman 目标”。
+`MDP` 提供问题抽象，回报定义提供优化目标，Bellman 方程提供递推结构。多数强化学习算法都可视为“在不同信息条件下近似或求解同一类 Bellman 目标”。
 
 ## 继续阅读
 
 - [01-强化学习、状态、动作与Q值](./01-强化学习、状态、动作与Q值.md)
-- [03-Q-Learning的值传播与Q表更新](./03-Q-Learning的值传播与Q表更新.md)
+- [03-动态规划的策略评估、策略迭代与价值迭代](./03-动态规划的策略评估、策略迭代与价值迭代.md)
+- [04-Q-Learning的值传播与Q表更新](./04-Q-Learning的值传播与Q表更新.md)

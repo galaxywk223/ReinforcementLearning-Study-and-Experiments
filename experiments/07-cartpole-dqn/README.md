@@ -4,7 +4,7 @@
 
 ## 关联笔记
 
-- [07-DQN的经验回放与目标网络](../../notes/07-DQN的经验回放与目标网络.md)
+- [09-DQN的经验回放与目标网络](../../notes/09-DQN的经验回放与目标网络.md)
 
 ## 实验内容
 
@@ -26,7 +26,7 @@
 ## 运行命令
 
 ```bash
-cd experiments/05-cartpole-dqn
+cd experiments/07-cartpole-dqn
 python train.py --episodes 400 --print-eval-rollout
 python train.py --episodes 10 --batch-size 8 --buffer-capacity 256 --learning-starts 32 --eval-episodes 5 --run-name smoke
 python trace_dqn_updates.py

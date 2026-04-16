@@ -69,14 +69,14 @@ $$
 
 ### 代码入口
 
-- [train.py](../experiments/04-cliffwalking-n-step-sarsa/train.py)
-- [trace_n_step_updates.py](../experiments/04-cliffwalking-n-step-sarsa/trace_n_step_updates.py)
-- [compare_one_step_n_step_sarsa.py](../experiments/04-cliffwalking-n-step-sarsa/compare_one_step_n_step_sarsa.py)
+- [train.py](../experiments/05-cliffwalking-n-step-sarsa/train.py)
+- [trace_n_step_updates.py](../experiments/05-cliffwalking-n-step-sarsa/trace_n_step_updates.py)
+- [compare_one_step_n_step_sarsa.py](../experiments/05-cliffwalking-n-step-sarsa/compare_one_step_n_step_sarsa.py)
 
 ### 运行命令
 
 ```bash
-cd experiments/04-cliffwalking-n-step-sarsa
+cd experiments/05-cliffwalking-n-step-sarsa
 python train.py --episodes 800 --n-step 4 --render-final-policy
 python trace_n_step_updates.py --episodes 3 --n-step 4
 python compare_one_step_n_step_sarsa.py --episodes 800 --n-step 4
@@ -114,5 +114,6 @@ if terminal_time is None or tau + config.n_step < terminal_time:
 
 ## 继续阅读
 
-- [07-DQN的经验回放与目标网络](./07-DQN的经验回放与目标网络.md)
-- [04-cliffwalking-n-step-sarsa](../experiments/04-cliffwalking-n-step-sarsa/README.md)
+- [08-Dyna-Q的模型学习与规划更新](./08-Dyna-Q的模型学习与规划更新.md)
+- [09-DQN的经验回放与目标网络](./09-DQN的经验回放与目标网络.md)
+- [05-cliffwalking-n-step-sarsa](../experiments/05-cliffwalking-n-step-sarsa/README.md)

@@ -4,7 +4,7 @@
 
 ## 关联笔记
 
-- [04-SARSA的时序更新与策略差异](../../notes/04-SARSA的时序更新与策略差异.md)
+- [05-SARSA的时序更新与策略差异](../../notes/05-SARSA的时序更新与策略差异.md)
 
 ## 实验内容
 
@@ -26,7 +26,7 @@
 ## 运行命令
 
 ```bash
-cd experiments/02-cliffwalking-tabular-sarsa
+cd experiments/03-cliffwalking-tabular-sarsa
 python train.py --episodes 800 --render-final-policy
 python train.py --episodes 1200 --alpha 0.5 --gamma 0.99 --epsilon-start 0.1 --epsilon-end 0.1 --epsilon-decay 1.0
 python train.py --episodes 800 --max-steps-per-episode 500

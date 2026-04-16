@@ -76,13 +76,13 @@ $$
 
 ### 代码入口
 
-- [train.py](../experiments/01-frozenlake-tabular-q/train.py)
-- [trace_q_updates.py](../experiments/01-frozenlake-tabular-q/trace_q_updates.py)
+- [train.py](../experiments/02-frozenlake-tabular-q/train.py)
+- [trace_q_updates.py](../experiments/02-frozenlake-tabular-q/trace_q_updates.py)
 
 ### 运行命令
 
 ```bash
-cd experiments/01-frozenlake-tabular-q
+cd experiments/02-frozenlake-tabular-q
 python train.py --episodes 4000 --render-final-policy
 python trace_q_updates.py --episodes 6
 ```
@@ -111,5 +111,5 @@ q_table[state, action] += config.alpha * td_error
 
 ## 继续阅读
 
-- [04-SARSA的时序更新与策略差异](./04-SARSA的时序更新与策略差异.md)
-- [01-frozenlake-tabular-q](../experiments/01-frozenlake-tabular-q/README.md)
+- [05-SARSA的时序更新与策略差异](./05-SARSA的时序更新与策略差异.md)
+- [02-frozenlake-tabular-q](../experiments/02-frozenlake-tabular-q/README.md)

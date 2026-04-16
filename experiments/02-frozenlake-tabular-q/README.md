@@ -4,7 +4,7 @@
 
 ## 关联笔记
 
-- [03-Q-Learning的值传播与Q表更新](../../notes/03-Q-Learning的值传播与Q表更新.md)
+- [04-Q-Learning的值传播与Q表更新](../../notes/04-Q-Learning的值传播与Q表更新.md)
 
 ## 实验内容
 
@@ -25,7 +25,7 @@
 ## 运行命令
 
 ```bash
-cd experiments/01-frozenlake-tabular-q
+cd experiments/02-frozenlake-tabular-q
 python train.py --episodes 4000 --render-final-policy
 python train.py --episodes 6000 --alpha 0.15 --gamma 0.99 --epsilon-start 1.0 --epsilon-end 0.05 --epsilon-decay 0.999
 python train.py --episodes 4000 --non-slippery --run-name frozenlake-deterministic

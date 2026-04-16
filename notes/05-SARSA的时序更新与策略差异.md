@@ -68,14 +68,14 @@ $$
 
 ### 代码入口
 
-- [train.py](../experiments/02-cliffwalking-tabular-sarsa/train.py)
-- [trace_sarsa_updates.py](../experiments/02-cliffwalking-tabular-sarsa/trace_sarsa_updates.py)
-- [compare_sarsa_q_learning.py](../experiments/02-cliffwalking-tabular-sarsa/compare_sarsa_q_learning.py)
+- [train.py](../experiments/03-cliffwalking-tabular-sarsa/train.py)
+- [trace_sarsa_updates.py](../experiments/03-cliffwalking-tabular-sarsa/trace_sarsa_updates.py)
+- [compare_sarsa_q_learning.py](../experiments/03-cliffwalking-tabular-sarsa/compare_sarsa_q_learning.py)
 
 ### 运行命令
 
 ```bash
-cd experiments/02-cliffwalking-tabular-sarsa
+cd experiments/03-cliffwalking-tabular-sarsa
 python train.py --episodes 800 --render-final-policy
 python trace_sarsa_updates.py --episodes 3
 python compare_sarsa_q_learning.py --episodes 800
@@ -109,6 +109,6 @@ q_table[state, action] += config.alpha * td_error
 
 ## 继续阅读
 
-- [05-MonteCarlo的整局回报与动作价值更新](./05-MonteCarlo的整局回报与动作价值更新.md)
-- [06-n-step-SARSA的多步回报与折中更新](./06-n-step-SARSA的多步回报与折中更新.md)
-- [02-cliffwalking-tabular-sarsa](../experiments/02-cliffwalking-tabular-sarsa/README.md)
+- [06-MonteCarlo的整局回报与动作价值更新](./06-MonteCarlo的整局回报与动作价值更新.md)
+- [07-n-step-SARSA的多步回报与折中更新](./07-n-step-SARSA的多步回报与折中更新.md)
+- [03-cliffwalking-tabular-sarsa](../experiments/03-cliffwalking-tabular-sarsa/README.md)

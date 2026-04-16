@@ -5,9 +5,10 @@ channels:
 dependencies:
   - python=3.11
   - pip
+  - swig
   - pip:
       - numpy==2.4.4
       - matplotlib==3.10.8
-      - gymnasium==1.2.3
+      - gymnasium[box2d]==1.2.3
       - tqdm==4.67.3
       - torch==2.6.0

@@ -56,13 +56,13 @@ $$
 
 ### 代码入口
 
-- [train.py](../experiments/03-blackjack-monte-carlo/train.py)
-- [trace_mc_updates.py](../experiments/03-blackjack-monte-carlo/trace_mc_updates.py)
+- [train.py](../experiments/04-blackjack-monte-carlo/train.py)
+- [trace_mc_updates.py](../experiments/04-blackjack-monte-carlo/trace_mc_updates.py)
 
 ### 运行命令
 
 ```bash
-cd experiments/03-blackjack-monte-carlo
+cd experiments/04-blackjack-monte-carlo
 python train.py --episodes 200000 --render-final-policy
 python trace_mc_updates.py --episodes 3
 ```
@@ -102,5 +102,5 @@ Monte Carlo 通过整局回报直接更新动作价值，适合解释终局反�
 
 ## 继续阅读
 
-- [06-n-step-SARSA的多步回报与折中更新](./06-n-step-SARSA的多步回报与折中更新.md)
-- [03-blackjack-monte-carlo](../experiments/03-blackjack-monte-carlo/README.md)
+- [07-n-step-SARSA的多步回报与折中更新](./07-n-step-SARSA的多步回报与折中更新.md)
+- [04-blackjack-monte-carlo](../experiments/04-blackjack-monte-carlo/README.md)

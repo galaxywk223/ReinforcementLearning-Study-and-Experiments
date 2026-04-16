@@ -4,7 +4,7 @@
 
 ## 关联笔记
 
-- [05-MonteCarlo的整局回报与动作价值更新](../../notes/05-MonteCarlo的整局回报与动作价值更新.md)
+- [06-MonteCarlo的整局回报与动作价值更新](../../notes/06-MonteCarlo的整局回报与动作价值更新.md)
 
 ## 实验内容
 
@@ -26,7 +26,7 @@
 ## 运行命令
 
 ```bash
-cd experiments/03-blackjack-monte-carlo
+cd experiments/04-blackjack-monte-carlo
 python train.py --episodes 200000 --render-final-policy
 python train.py --episodes 300000 --epsilon-start 0.2 --epsilon-end 0.03 --epsilon-decay 0.999992 --run-name blackjack-mc-300k
 python train.py --episodes 80000 --epsilon-start 0.15 --epsilon-end 0.05 --epsilon-decay 0.99998 --run-name blackjack-mc-fast
