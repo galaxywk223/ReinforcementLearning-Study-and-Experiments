@@ -20,12 +20,15 @@
 | [11-Actor-Critic的价值基线与同步更新](./11-Actor-Critic的价值基线与同步更新.md) | Actor-Critic | 用价值基线稳定策略梯度 | [CartPole Actor-Critic 实验](../experiments/09-cartpole-actor-critic/README.md) |
 | [12-PPO的裁剪目标与稳定策略更新](./12-PPO的裁剪目标与稳定策略更新.md) | PPO | 裁剪目标与批量 on-policy 更新 | [LunarLander PPO 实验](../experiments/10-lunarlander-ppo/README.md) |
 | [13-SAC的最大熵目标与连续动作控制](./13-SAC的最大熵目标与连续动作控制.md) | SAC | 连续动作 off-policy 深度强化学习 | [Pendulum SAC 实验](../experiments/11-pendulum-sac/README.md) |
+| [14-CMDP与安全强化学习入门](./14-CMDP与安全强化学习入门.md) | CMDP 与安全强化学习 | cost、constraint 与安全约束建模 | - |
+| [15-约束强化学习与Lagrangian方法](./15-约束强化学习与Lagrangian方法.md) | 约束强化学习 | Lagrangian、PPO-Lagrangian 与 CPO | - |
 
 ## 章节模板
 
 - `00` 使用环境模板：`环境准备`、`运行命令`、`运行说明`、`常见问题`、`后续阅读`。
 - `01-02` 使用概念模板：`本章目标`、`核心概念`、`关键关系与公式`、`关联实验`、`小结`、`继续阅读`。
 - `03-13` 使用算法模板：`本章目标`、`本章实验`、`关键结果`、`核心机制`、`代码与脚本`、`小结`、`继续阅读`。
+- `14-15` 使用专题模板：`本章目标`、`核心机制`、`关键关系与公式`、`小结`、`继续阅读`。
 
 ## 与实验对应
 

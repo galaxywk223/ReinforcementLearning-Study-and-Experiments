@@ -26,6 +26,8 @@
 | [11](notes/11-Actor-Critic的价值基线与同步更新.md) | Actor-Critic | 用价值基线稳定策略梯度并同步更新策略与价值 | [CartPole Actor-Critic 实验](experiments/09-cartpole-actor-critic/README.md) |
 | [12](notes/12-PPO的裁剪目标与稳定策略更新.md) | PPO | 用裁剪目标和 `GAE` 稳定 on-policy 深度策略优化 | [LunarLander PPO 实验](experiments/10-lunarlander-ppo/README.md) |
 | [13](notes/13-SAC的最大熵目标与连续动作控制.md) | SAC | 用最大熵目标、双 critic 与随机策略处理连续动作 | [Pendulum SAC 实验](experiments/11-pendulum-sac/README.md) |
+| [14](notes/14-CMDP与安全强化学习入门.md) | CMDP 与安全强化学习 | 在 MDP 中加入 cost、constraint 与安全约束视角 | - |
+| [15](notes/15-约束强化学习与Lagrangian方法.md) | 约束强化学习 | 用 Lagrangian、PPO-Lagrangian 与 CPO 处理约束优化 | - |
 
 ## 结果速览
 
@@ -152,7 +154,9 @@ ReinforcementLearning-Study-and-Experiments/
 │  ├─ 10-REINFORCE的回合策略梯度与高方差问题.md
 │  ├─ 11-Actor-Critic的价值基线与同步更新.md
 │  ├─ 12-PPO的裁剪目标与稳定策略更新.md
-│  └─ 13-SAC的最大熵目标与连续动作控制.md
+│  ├─ 13-SAC的最大熵目标与连续动作控制.md
+│  ├─ 14-CMDP与安全强化学习入门.md
+│  └─ 15-约束强化学习与Lagrangian方法.md
 ├─ environment.yml
 ├─ requirements.txt
 └─ README.md
